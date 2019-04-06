@@ -1,0 +1,12 @@
+html,
+body {
+	font-family: $font-family;
+	font-size: $font-size-base;
+	font-weight: 400;
+	font-style: normal;
+	line-height: $line-height;
+	text-align: left;
+	color: $color-text;
+	background: $color-background;
+	min-height: 3000px;
+}

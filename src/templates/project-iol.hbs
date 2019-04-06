@@ -1,0 +1,89 @@
+<section class="project" id="iol">
+	{{> preview filename="preview-iol" alt="IOL web application" }}
+	<div>
+		<h2>IOL web application</h2>
+		<p>
+			This application is used in African wild parks to display the
+			real-time location of animals, people and vehicles.
+			<button class="btn btn-more" aria-expanded="false">Read more...</button>
+		</p>
+	</div>
+	<div aria-hidden="true">
+		<p>
+			The IOL web application is used in African wild parks to display the real-time location
+			of animals, people and vehicles. This project was made in my free time to support
+			the great work of <a href="http://www.theinternetoflife.com/" target="_blank" rel="noopener noreferrer">IOL</a>
+			and the <a href="http://shadowview.org/" target="_blank" rel="noopener noreferrer">ShadowView Foundation</a>.
+		</p>
+		<p>
+			Using the web application, park managers can quickly see the location of each tracker and get detailed
+			information like altitude, speed, course, etc. The application also displays the route a tracker
+			has taken. And it will notify the park manager when gates are opened and closed.
+		</p>
+		<p>
+			Next to the main interface, there is also a (HTML5 based) mobile app. Using the mobile app,
+			park managers can update the information of a tracker device by scanning it using the camera
+			on their mobile phone.
+		</p>
+		<h3>Technical details</h3>
+		<ul>
+			<li>Made using <a href="https://angular.io" target="_blank" rel="noopener noreferrer">Angular5</a></li>
+			<li>Written in <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">TypeScript</a></li>
+			<li>Maps via <a href="https://openlayers.org" target="_blank" rel="noopener noreferrer">OpenLayers</a></li>
+			<li>Build using <a href="https://webpack.github.io" target="_blank" rel="noopener noreferrer">Webpack</a></li>
+		</ul>
+		<div class="gallery">
+			<div>
+				{{> image filename="iol-map-login" alt="Interface showing a login" }}
+				{{> image filename="iol-map-dashboard" alt="Interface showing trackers on a map" }}
+				{{> image filename="iol-map-details" alt="Interface showing details of a rhino tracker" }}
+				{{> image filename="iol-map-path" alt="Interface showing path of a rhino tracker" }}
+				{{> image filename="iol-map-heatmap" alt="Interface showing heatmap of historical data" }}
+				{{> image filename="iol-map-connections" alt="Interface showing connection from antenna" }}
+				{{> video filename="iol-desktop" type="video-large" }}
+				{{> image filename="iol-admin-overview" alt="Admin interface" }}
+				{{> image filename="iol-admin-edit" alt="Admin interface showing an edit modal" }}
+				{{> image filename="iol-mobile-1" alt="Mobile interface showing a login" }}
+				{{> image filename="iol-mobile-2" alt="Mobile interface showing a barcode scanner" }}
+				{{> image filename="iol-mobile-3" alt="Mobile interface showing an edit modal" }}
+				<figure class="video video-small" role="presentation" aria-hidden="true" tabindex="-1">
+					<video preload="none" playsinline controls controlsList="nodownload">
+						<source src="/static/videos/iol-mkomazi.mp4" type="video/mp4"/>
+					</video>
+				</figure>
+			</div>
+			{{> image-buttons }}
+		</div>
+		<ul class="links">
+			<li>
+				<a href="https://iol.madebyferdi.com/dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-link">
+					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+						<use xlink:href="#icon-link"/>
+					</svg>
+					Demo: Dashboard
+				</a>
+			</li>
+			<li>
+				<a href="https://iol.madebyferdi.com/dashboard/details/482C6A1E593D" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-link">
+					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+						<use xlink:href="#icon-link"/>
+					</svg>
+					Demo: Details
+				</a>
+			</li>
+			<li>
+				<a href="https://iol.madebyferdi.com/admin" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-link">
+					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+						<use xlink:href="#icon-link"/>
+					</svg>
+					Demo: Admin
+				</a>
+			</li>
+		</ul>
+	</div>
+	<button class="btn btn-close" aria-label="Close project" tabindex="-1">
+		<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+			<use xlink:href="#cross"/>
+		</svg>
+	</button>
+</section>

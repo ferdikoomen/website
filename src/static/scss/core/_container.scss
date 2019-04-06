@@ -1,0 +1,91 @@
+.container {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	background: white;
+
+	@include from(tablet) {
+		width: $breakpoint-tablet;
+		margin: 0 auto;
+
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 50%;
+			width: 200px;
+			margin-left: -100px;
+			height: 100%;
+			pointer-events: none;
+			z-index: -1;
+		}
+
+		&::before {
+			transform: translate(-($breakpoint-tablet / 2) - 100, 0);
+			background: $color-background;
+			background: linear-gradient(to right, $color-background 0%, #E9E9E9 100%);
+		}
+		&::after {
+			transform: translate(($breakpoint-tablet / 2) + 100, 0);
+			background: $color-background;
+			background: linear-gradient(to right, #E9E9E9 0%, $color-background 100%);
+		}
+	}
+
+	@include from(desktop) {
+		width: $breakpoint-desktop;
+		margin: 0 auto;
+
+		&::before {
+			transform: translate(-($breakpoint-desktop / 2) - 100, 0);
+		}
+
+		&::after {
+			transform: translate(($breakpoint-desktop / 2) + 100, 0);
+		}
+	}
+
+	@include from(wide) {
+		width: $breakpoint-wide;
+		margin: 0 auto;
+
+		&::before {
+			transform: translate(-($breakpoint-wide / 2) - 100, 0);
+		}
+
+		&::after {
+			transform: translate(($breakpoint-wide / 2) + 100, 0);
+		}
+	}
+
+	@include from(superwide) {
+		width: $breakpoint-superwide;
+		margin: 0 auto;
+
+		&::before {
+			transform: translate(-($breakpoint-superwide / 2) - 100, 0);
+		}
+
+		&::after {
+			transform: translate(($breakpoint-superwide / 2) + 100, 0);
+		}
+	}
+
+	@include from(ultrawide) {
+		width: $breakpoint-ultrawide;
+		margin: 0 auto;
+
+		&::before {
+			transform: translate(-($breakpoint-ultrawide / 2) - 100, 0);
+		}
+
+		&::after {
+			transform: translate(($breakpoint-ultrawide / 2) + 100, 0);
+		}
+	}
+}

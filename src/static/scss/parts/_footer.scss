@@ -1,0 +1,51 @@
+.footer {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	color: white;
+	background: #1E1E1E;
+	text-align: center;
+	padding: $line-height $padding-side-mobile 100px;
+	box-sizing: border-box;
+	transform: translate(0, 0);
+	transition: transform ease-in-out 400ms;
+
+	@include from(mobile) {
+		padding: $line-height * 2 $padding-side-tablet + 50px 200px;
+	}
+
+	@include from(desktop) {
+		padding: $line-height * 2 $padding-side-desktop + 50px 200px;
+	}
+
+	> h2 {
+		font-size: $font-size-large;
+		font-weight: 600;
+		line-height: $font-size-large;
+		position: relative;
+		margin: 0 0 $line-height;
+		max-width: none;
+	}
+
+	> ul {
+		list-style: none;
+		max-width: none;
+		padding: 0;
+
+		> li {
+			display: block;
+			margin-right: 0;
+			margin-bottom: 12px;
+
+			@include from(mobile) {
+				display: inline-block;
+
+				&:not(:last-child) {
+					margin-right: 12px;
+					margin-bottom: 12px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+$font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-monospace: Menlo, Consolas, Courier, monospace;
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 740px;
+$breakpoint-desktop: 1000px;
+$breakpoint-wide: 1280px;
+$breakpoint-superwide: 1560px;
+$breakpoint-ultrawide: 1840px;
+
+$padding-side-mobile: 20px;
+$padding-side-tablet: 60px;
+$padding-side-desktop: 80px;
+
+$max-text-width: 540px;
+
+$preview-width: 1260px;
+$preview-height: 600px;
+$preview-ratio: ($preview-height / $preview-width) * 100%;
+
+$image-mobile-width: 460px;
+$image-mobile-height: 288px;
+$image-tablet-width: 650px;
+$image-tablet-height: 406px;
+$image-desktop-width: 880px;
+$image-desktop-height: 550px;
+$image-wide-width: 1170px;
+$image-wide-height: 731px;
+$image-superwide-width: 1470px;
+$image-superwide-height: 919px;
+$image-ultrawide-width: 1760px;
+$image-ultrawide-height: 1100px;
+
+$color-background: #F5F5F5;
+$color-text: #111111;
+$color-highlight: #33CC33;
+$color-fade: rgba(255, 255, 255, 0.1);
+$color-button-linkedin: #1178B3;
+$color-button-twitter: #2AA2EF;
+$color-button-github: #24292E;
+$color-links: #00AAFF;
+$color-line-light: #DDDDDD;
+$color-line-dark: #333333;
+
+$color-project-mini: #0B0B0B;
+$color-project-capture3: #1E1E1E;
+$color-project-folume: #323232;
+$color-project-iol: #424242;
+
+$font-size-base: 15px;
+$font-size-large: 18px;
+$line-height: 22px;

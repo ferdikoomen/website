@@ -1,0 +1,110 @@
+.intro {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	color: $color-text;
+	background: white;
+	padding: 0 $padding-side-mobile $line-height * 3;
+	box-sizing: border-box;
+	transform: translate(0, 0);
+
+	@include from(mobile) {
+		padding: 0 $padding-side-tablet $line-height * 4;
+	}
+
+	@include from(desktop) {
+		padding: 0 $padding-side-desktop $line-height * 4;
+	}
+
+	> h1 {
+		display: block;
+		font-size: 60px;
+		font-weight: 200;
+		line-height: 60px;
+		padding: $line-height * 5 0 $line-height * 2;
+
+		@include from(tablet) {
+			padding: $line-height * 8 0 $line-height * 3;
+		}
+	}
+
+	> p {
+		> span {
+			color: $color-highlight;
+			margin-right: 4px;
+		}
+	}
+
+	> ol {
+		list-style: none;
+		max-width: $max-text-width;
+
+		> li {
+			display: block;
+			position: relative;
+			margin-left: 20px;
+
+			&::before {
+				content: "✓";
+				display: inline-block;
+				position: absolute;
+				left: -20px;
+				color: $color-highlight;
+				font-family: Arial, sans-serif;
+				font-weight: bold;
+				z-index: 1;
+			}
+		}
+	}
+
+	> ul {
+		list-style: none;
+		margin-top: $line-height * 2;
+
+		> li {
+			display: block;
+			margin-right: 0;
+			margin-bottom: 12px;
+
+			@include from(mobile) {
+				display: inline-block;
+
+				&:not(:last-child) {
+					margin-right: 12px;
+					margin-bottom: 12px;
+				}
+			}
+
+			> .btn {
+				&.btn-linkedin,
+				&.btn-linkedin:hover {
+					background: $color-button-linkedin;
+				}
+
+				&.btn-linkedin:focus {
+					box-shadow: 0 0 0 3px transparentize($color-button-linkedin, 0.5);
+				}
+
+				&.btn-twitter,
+				&.btn-twitter:hover {
+					background: $color-button-twitter;
+				}
+
+				&.btn-twitter:focus {
+					box-shadow: 0 0 0 3px transparentize($color-button-twitter, 0.5);
+				}
+
+				&.btn-github,
+				&.btn-github:hover {
+					background: $color-button-github;
+				}
+
+				&.btn-github:focus {
+					box-shadow: 0 0 0 3px transparentize($color-button-github, 0.5);
+				}
+			}
+		}
+	}
+}
+

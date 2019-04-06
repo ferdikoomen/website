@@ -1,0 +1,55 @@
+<section class="intro">
+	<h1 id="message">Hello,</h1>
+	<p>
+		<strong>I'm Ferdi Koomen</strong>, a freelance developer with more than 10 years of experience
+		in the development & management of complex technical projects. When I’m not working for clients,
+		you can find me learning new technologies or working on personal projects. This website showcases
+		a selection of that non-commercial work.
+	</p>
+	<ol>
+		<li>Experienced in a wide range of technologies (both client and server side).</li>
+		<li>Comfortable with complex projects and tight deadlines.</li>
+		<li>Good communication skills.</li>
+	</ol>
+	<p>
+		You can reach me on <a href="tel:+31641626099">+31 (0)6 41 62 60 99</a>
+		or <a href="mailto:info@madebyferdi.com">info@madebyferdi.com</a>
+	</p>
+	<ul>
+		<li>
+			<a href="https://linkedin.com/in/ferdikoomen" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-linkedin">
+				<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+					<use xlink:href="#icon-linkedin"/>
+				</svg>
+				LinkedIn
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/ferdikoomen" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-twitter">
+				<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+					<use xlink:href="#icon-twitter"/>
+				</svg>
+				Twitter
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/ferdikoomen" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
+				<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+					<use xlink:href="#icon-github"/>
+				</svg>
+				GitHub
+			</a>
+		</li>
+	</ul>
+	<script>
+		var message = document.querySelector("#message");
+		var date = new Date();
+		var hours = date.getHours();
+		if (hours <= 9) {
+			message.innerText = "Good morning,";
+		}
+		if (hours >= 17) {
+			message.innerText = "Good evening,";
+		}
+	</script>
+</section>
