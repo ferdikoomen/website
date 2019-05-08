@@ -5,11 +5,12 @@ const path = require("path");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 
+const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
 
@@ -34,7 +35,29 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.ts$/,
-			loader: "ts-loader"
+			use: [{
+				loader: "babel-loader",
+				options: {
+					cacheDirectory: false,
+					cacheCompression: false,
+					presets: [
+						["@babel/env", {
+							modules: false,
+							useBuiltIns: 'entry',
+							corejs: 2
+						}]
+					]
+				}
+			}, {
+				loader: "ts-loader",
+				options: {
+					onlyCompileBundledFiles: true,
+					transpileOnly: true,
+					compilerOptions: {
+						sourceMap: false
+					}
+				}
+			}]
 		}, {
 			test: /\.scss$/,
 			use: [{
@@ -85,16 +108,21 @@ module.exports = {
 			DEBUG: false
 		}),
 
+		new ForkTsCheckerWebpackPlugin({
+			workers: ForkTsCheckerWebpackPlugin.ONE_CPU,
+			async: false
+		}),
+
 		new CopyWebpackPlugin([
-			{from: "src/robots.txt", to: "."},
-			{from: "src/sitemap.xml", to: "."},
-			{from: "src/static/images/*.jpg", to: "static/images/", flatten: true},
-			{from: "src/static/images/*.webp", to: "static/images/", flatten: true},
-			{from: "src/static/videos/*.mp4", to: "static/videos/", flatten: true},
-			{from: "src/static/gfx/*.jpg", to: "static/gfx/", flatten: true},
-			{from: "src/static/gfx/*.webp", to: "static/gfx/", flatten: true},
-			{from: "src/static/gfx/*.png", to: "static/gfx/", flatten: true},
-			{from: "src/static/gfx/*.svg", to: "static/gfx/", flatten: true}
+			{ from: "src/robots.txt", to: "." },
+			{ from: "src/sitemap.xml", to: "." },
+			{ from: "src/static/images/*.jpg", to: "static/images/", flatten: true },
+			{ from: "src/static/images/*.webp", to: "static/images/", flatten: true },
+			{ from: "src/static/videos/*.mp4", to: "static/videos/", flatten: true },
+			{ from: "src/static/gfx/*.jpg", to: "static/gfx/", flatten: true },
+			{ from: "src/static/gfx/*.webp", to: "static/gfx/", flatten: true },
+			{ from: "src/static/gfx/*.png", to: "static/gfx/", flatten: true },
+			{ from: "src/static/gfx/*.svg", to: "static/gfx/", flatten: true }
 		]),
 
 		new MiniCssExtractPlugin({
@@ -104,7 +132,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "src/index.hbs",
 			filename: "index.html",
-            favicon: "src/static/gfx/favicon.ico",
+			favicon: "src/static/gfx/favicon.ico",
 			hash: false,
 			inject: true,
 			compile: true,
@@ -131,16 +159,19 @@ module.exports = {
 	],
 
 	optimization: {
+		splitChunks: false,
 		minimizer: [
-			new UglifyJSPlugin({
-				parallel: true, // !important to speedup the build process
+			new TerserPlugin({
+				parallel: true,
 				cache: true,
-				uglifyOptions: {
+				sourceMap: false,
+				terserOptions: {
 					mangle: true,
 					output: {
 						comments: false
 					},
 					compress: {
+						arrows: true,
 						booleans: true,
 						comparisons: true,
 						conditionals: true,

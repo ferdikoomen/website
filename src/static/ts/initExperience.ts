@@ -58,7 +58,7 @@ export function initExperience(
 	}
 
 	element.addEventListener("click", (e: MouseEvent) => {
-		if (window.innerWidth < 480 && e.srcElement!.nodeName.toUpperCase() !== "A") {
+		if (window.innerWidth < 480 && (e.srcElement as any).nodeName.toUpperCase() !== "A") {
 			e.preventDefault();
 			e.stopImmediatePropagation();
 

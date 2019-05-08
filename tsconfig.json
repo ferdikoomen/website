@@ -3,23 +3,32 @@
 
 	"compilerOptions": {
 		"target": "es5",
-		"module": "es2015",
+		"module": "es6",
 		"moduleResolution": "node",
-		"lib": ["es2015", "es2016", "es2017", "dom"],
+		"lib": ["es5", "es6", "dom"],
 		"types": ["node"],
 		"typeRoots": ["node_modules/@types"],
+		"declaration": false,
+		"declarationMap": false,
+		"sourceMap": false,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noImplicitAny": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
 		"strict": true,
 		"strictNullChecks": true,
-		"sourceMap": true,
-		"rootDir": "src",
-		"outDir": "deploy"
+		"importHelpers": false,
+		"forceConsistentCasingInFileNames": true,
+		"outDir": "./deploy"
 	},
 
 	"include": [
-		"src/static/ts/**/*.ts"
+		"./src/static/ts/**/*.ts"
 	],
 
 	"exclude": [

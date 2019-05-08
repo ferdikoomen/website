@@ -9,6 +9,7 @@ const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
 
@@ -42,7 +43,30 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.ts$/,
-			loader: "ts-loader"
+			use: [{
+				loader: "babel-loader",
+				options: {
+					cacheDirectory: false,
+					cacheCompression: false,
+					presets: [
+						["@babel/env", {
+							modules: false,
+							useBuiltIns: 'entry',
+							corejs: 2
+						}]
+					]
+				}
+			}, {
+				loader: "ts-loader",
+				options: {
+					experimentalWatchApi: true,
+					onlyCompileBundledFiles: true,
+					transpileOnly: true,
+					compilerOptions: {
+						sourceMap: true
+					}
+				}
+			}]
 		}, {
 			test: /\.scss$/,
 			use: [{
@@ -99,16 +123,21 @@ module.exports = {
 			DEBUG: true
 		}),
 
+		new ForkTsCheckerWebpackPlugin({
+			workers: ForkTsCheckerWebpackPlugin.ONE_CPU,
+			async: false
+		}),
+
 		new CopyWebpackPlugin([
-			{from: "src/robots.txt", to: "."},
-			{from: "src/sitemap.xml", to: "."},
-			{from: "src/static/images/*.jpg", to: "static/images/", flatten: true},
-			{from: "src/static/images/*.webp", to: "static/images/", flatten: true},
-			{from: "src/static/videos/*.mp4", to: "static/videos/", flatten: true},
-			{from: "src/static/gfx/*.jpg", to: "static/gfx/", flatten: true},
-			{from: "src/static/gfx/*.webp", to: "static/gfx/", flatten: true},
-			{from: "src/static/gfx/*.png", to: "static/gfx/", flatten: true},
-			{from: "src/static/gfx/*.svg", to: "static/gfx/", flatten: true}
+			{ from: "src/robots.txt", to: "." },
+			{ from: "src/sitemap.xml", to: "." },
+			{ from: "src/static/images/*.jpg", to: "static/images/", flatten: true },
+			{ from: "src/static/images/*.webp", to: "static/images/", flatten: true },
+			{ from: "src/static/videos/*.mp4", to: "static/videos/", flatten: true },
+			{ from: "src/static/gfx/*.jpg", to: "static/gfx/", flatten: true },
+			{ from: "src/static/gfx/*.webp", to: "static/gfx/", flatten: true },
+			{ from: "src/static/gfx/*.png", to: "static/gfx/", flatten: true },
+			{ from: "src/static/gfx/*.svg", to: "static/gfx/", flatten: true }
 		]),
 
 		new MiniCssExtractPlugin({
@@ -118,7 +147,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "src/index.hbs",
 			filename: "index.html",
-            favicon: "src/static/gfx/favicon.ico",
+			favicon: "src/static/gfx/favicon.ico",
 			hash: false,
 			inject: true,
 			compile: true,
