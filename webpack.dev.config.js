@@ -5,7 +5,6 @@ const path = require("path");
 const autoprefixer = require("autoprefixer");
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -46,8 +45,6 @@ module.exports = {
 			use: [{
 				loader: "babel-loader",
 				options: {
-					cacheDirectory: false,
-					cacheCompression: false,
 					presets: [
 						["@babel/env", {
 							modules: false,
@@ -105,18 +102,6 @@ module.exports = {
 	},
 
 	plugins: [
-		new HardSourceWebpackPlugin({
-			cacheDirectory: "../node_modules/.cache/hard-source/[confighash]",
-			environmentHash: {
-				root: process.cwd(),
-				directories: [],
-				files: [
-					"package-lock.json",
-					"yarn.lock",
-					"webpack.dev.config.js"
-				]
-			}
-		}),
 
 		new webpack.EnvironmentPlugin({
 			NODE_ENV: "development",
