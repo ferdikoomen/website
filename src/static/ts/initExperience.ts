@@ -50,7 +50,7 @@ export function initExperience(
 			delayedCall(() => {
 				move(60 - element.clientHeight);
 				delayedCall(() => {
-					element.style.height = null;
+					element.style.height = null!;
 					moveDone();
 				}, 500);
 			}, 1);

@@ -58,7 +58,7 @@ export function initProject(
 
 				element.style.height = `${getHeightClosed()}px`;
 				element.classList.add("open");
-				content.style.top = null;
+				content.style.top = null!;
 				moveStart();
 
 				delayedCall(() => {
@@ -94,8 +94,8 @@ export function initProject(
 			delayedCall(() => {
 				move(getHeightClosed() - element.clientHeight);
 				delayedCall(() => {
-					element.style.height = null;
-					content.style.top = null;
+					element.style.height = null!;
+					content.style.top = null!;
 					moveDone();
 				}, 500);
 			}, 1);

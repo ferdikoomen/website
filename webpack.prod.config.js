@@ -68,17 +68,19 @@ module.exports = {
 			}, {
 				loader: "postcss-loader",
 				options: {
-					ident: "postcss",
-					plugins: [
-						autoprefixer(),
-						cssnano({
-							safe: true,
-							autoprefixer: false,
-							discardComments: {
-								removeAll: true
-							}
-						})
-					]
+					postcssOptions: {
+						ident: "postcss",
+						plugins: [
+							autoprefixer(),
+							cssnano({
+								safe: true,
+								autoprefixer: false,
+								discardComments: {
+									removeAll: true
+								}
+							})
+						]
+					}
 				}
 			}, {
 				loader: "sass-loader"
@@ -107,21 +109,22 @@ module.exports = {
 		}),
 
 		new ForkTsCheckerWebpackPlugin({
-			workers: ForkTsCheckerWebpackPlugin.ONE_CPU,
 			async: false
 		}),
 
-		new CopyWebpackPlugin([
-			{ from: "src/robots.txt", to: "." },
-			{ from: "src/sitemap.xml", to: "." },
-			{ from: "src/static/images/*.jpg", to: "static/images/", flatten: true },
-			{ from: "src/static/images/*.webp", to: "static/images/", flatten: true },
-			{ from: "src/static/videos/*.mp4", to: "static/videos/", flatten: true },
-			{ from: "src/static/gfx/*.jpg", to: "static/gfx/", flatten: true },
-			{ from: "src/static/gfx/*.webp", to: "static/gfx/", flatten: true },
-			{ from: "src/static/gfx/*.png", to: "static/gfx/", flatten: true },
-			{ from: "src/static/gfx/*.svg", to: "static/gfx/", flatten: true }
-		]),
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: "src/robots.txt", to: "." },
+				{ from: "src/sitemap.xml", to: "." },
+				{ from: "src/static/images/*.jpg", to: "static/images/", flatten: true },
+				{ from: "src/static/images/*.webp", to: "static/images/", flatten: true },
+				{ from: "src/static/videos/*.mp4", to: "static/videos/", flatten: true },
+				{ from: "src/static/gfx/*.jpg", to: "static/gfx/", flatten: true },
+				{ from: "src/static/gfx/*.webp", to: "static/gfx/", flatten: true },
+				{ from: "src/static/gfx/*.png", to: "static/gfx/", flatten: true },
+				{ from: "src/static/gfx/*.svg", to: "static/gfx/", flatten: true }
+			]
+		}),
 
 		new MiniCssExtractPlugin({
 			filename: "static/css/[name].css"
@@ -153,7 +156,7 @@ module.exports = {
 			chunks: ["main"]
 		}),
 
-		new HtmlWebpackInlineSourcePlugin()
+		new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin)
 	],
 
 	optimization: {
