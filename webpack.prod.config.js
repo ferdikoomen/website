@@ -21,7 +21,7 @@ module.exports = {
 	},
 
 	output: {
-		path: path.resolve(process.cwd(), "deploy"),
+		path: path.resolve(process.cwd(), "dist"),
 		publicPath: "/",
 		filename: "static/js/[name].js"
 	},
@@ -199,6 +199,6 @@ module.exports = {
 	},
 
 	watchOptions: {
-		ignored: /node_modules|deploy/
+		ignored: /node_modules|dist/
 	}
 };
