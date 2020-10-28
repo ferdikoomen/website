@@ -117,7 +117,6 @@ module.exports = {
 			}
 		}, {
 			test: /\.hbs$/,
-			include: path.resolve(__dirname, 'src/templates'),
 			loader: 'handlebars-loader'
 		}]
 	},
