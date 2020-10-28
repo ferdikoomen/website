@@ -21,7 +21,7 @@ module.exports = {
 	},
 
 	output: {
-		path: path.resolve(process.cwd(), 'dist'),
+		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',
 		filename: 'static/js/[name].js'
 	},
@@ -35,6 +35,7 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.ts$/,
+			include: path.resolve(__dirname, 'src/static/ts'),
 			use: [{
 				loader: 'babel-loader',
 				options: {
@@ -58,6 +59,7 @@ module.exports = {
 			}]
 		}, {
 			test: /\.scss$/,
+			include: path.resolve(__dirname, 'src/static/scss'),
 			use: [{
 				loader: MiniCssExtractPlugin.loader
 			}, {
@@ -87,6 +89,7 @@ module.exports = {
 			}]
 		}, {
 			test: /\.(eot|otf|ttf|woff|woff2)$/,
+			include: path.resolve(__dirname, 'src/static/fonts'),
 			loader: 'file-loader',
 			options: {
 				publicPath: '/static/fonts/',
@@ -95,7 +98,7 @@ module.exports = {
 			}
 		}, {
 			test: /\.(jpg|png|webp|gif|svg|ico)$/,
-			include: path.resolve(process.cwd(), 'src/static/gfx'),
+			include: path.resolve(__dirname, 'src/static/gfx'),
 			loader: 'file-loader',
 			options: {
 				publicPath: '/static/gfx/',
@@ -104,7 +107,7 @@ module.exports = {
 			}
 		}, {
 			test: /\.(jpg|png|webp)$/,
-			include: path.resolve(process.cwd(), 'src/static/images'),
+			include: path.resolve(__dirname, 'src/static/images'),
 			loader: 'file-loader',
 			options: {
 				publicPath: '/static/images/',
@@ -113,6 +116,7 @@ module.exports = {
 			}
 		}, {
 			test: /\.hbs$/,
+			include: path.resolve(__dirname, 'src/templates'),
 			loader: 'handlebars-loader'
 		}]
 	},
