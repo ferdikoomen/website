@@ -46,23 +46,15 @@ module.exports = {
 			use: [{
 				loader: 'babel-loader',
 				options: {
-					presets: [
-						['@babel/env', {
-							modules: false,
-							useBuiltIns: 'entry',
-							corejs: 2
-						}]
-					]
+					presets: ['@babel/preset-env'],
+					plugins: ['@babel/plugin-transform-runtime']
 				}
 			}, {
 				loader: 'ts-loader',
 				options: {
 					experimentalWatchApi: true,
 					onlyCompileBundledFiles: true,
-					transpileOnly: true,
-					compilerOptions: {
-						sourceMap: true
-					}
+					transpileOnly: true
 				}
 			}]
 		}, {
@@ -71,10 +63,7 @@ module.exports = {
 			use: [{
 				loader: MiniCssExtractPlugin.loader
 			}, {
-				loader: 'css-loader',
-				options: {
-					importLoaders: 1
-				}
+				loader: 'css-loader'
 			}, {
 				loader: 'postcss-loader',
 				options: {
