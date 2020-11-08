@@ -1,40 +1,40 @@
 h1,
 h2 {
-	display: block;
-	margin: 0;
-	padding: 0;
-	user-select: none;
-	cursor: default;
-	max-width: $max-text-width;
+    display: block;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    cursor: default;
+    max-width: $max-text-width;
 }
 
 p,
 ul,
 ol {
-	display: block;
-	margin: $line-height 0;
-	padding: 0;
-	box-sizing: border-box;
-	max-width: $max-text-width;
+    display: block;
+    margin: $line-height 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: $max-text-width;
 }
 
 li {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 strong {
-	font-weight: 700;
+    font-weight: 700;
 }
 
 a {
-	white-space: nowrap;
-	color: inherit;
-	text-decoration-skip-ink: auto;
+    white-space: nowrap;
+    color: inherit;
+    text-decoration-skip-ink: auto;
 
-	&:hover,
-	&:focus {
-		outline: none;
-		text-decoration: underline;
-	}
+    &:hover,
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
 }

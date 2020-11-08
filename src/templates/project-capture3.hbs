@@ -1,107 +1,107 @@
 <section class="project" id="capture3">
-	{{> preview filename="preview-capture3" alt="Capture3" }}
-	<div>
-		<h2>Capture3</h2>
-		<p>
-			C++ research project to learn more about cameras,
-			image processing, color spaces, OpenCV and multi‑threading.
-			<button class="btn btn-more" aria-expanded="false">Read more...</button>
-		</p>
-	</div>
-	<div aria-hidden="true">
-		<p>
-			Capture3 is a C++ desktop application that can capture and process photos through
-			a tethered connection with a digital camera. It started out as a research project
-			to learn more about digital cameras, image processing, color spaces, C++, OpenCV
-			and multi‑threading.
-		</p>
-		<ol>
-			<li>
-				<strong>Tethered capturing:</strong> Automatically capture multiple photos with different
-				<a href="https://en.wikipedia.org/wiki/Exposure_value" target="_blank" rel="noopener noreferrer">exposure values</a> and focus planes, without
-				touching the camera.
-			</li>
-			<li>
-				<strong>Automatic color calibration:</strong> This works by detecting a
-				<a href="http://xritephoto.com/colorchecker-digital-sg" target="_blank" rel="noopener noreferrer">X‑Rite ColorChecker Digital SG</a> target
-				in a photo, then detecting each of the 140 colored patches and
-				calculating a white point and color matrix from these values.
-			</li>
-			<li>
-				<strong>Exposure merging:</strong> Merge photos with different exposure brackets to create a
-				<a href="https://en.wikipedia.org/wiki/High-dynamic-range_imaging" target="_blank" rel="noopener noreferrer">HDR</a> image,
-				using a technique called <a href="https://en.wikipedia.org/wiki/Exposure_fusion" target="_blank" rel="noopener noreferrer">exposure fusion</a>.
-			</li>
-			<li>
-				<strong>Focus merging:</strong> Merge photos with different focal planes using a technique
-				called <a href="https://en.wikipedia.org/wiki/Focus_stacking" target="_blank" rel="noopener noreferrer">focus stacking</a> to create one result
-				image with a higher DOF (Depth Of Field).
-			</li>
-			<li>
-				<strong>Color space visualizer:</strong> Preview images in
-				<a href="https://en.wikipedia.org/wiki/RGB_color_space" target="_blank" rel="noopener noreferrer">RGB</a>,
-				<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="noopener noreferrer">HSB</a>,
-				<a href="https://en.wikipedia.org/wiki/CIE_1931_color_space" target="_blank" rel="noopener noreferrer">XYZ</a> and
-				<a href="https://en.wikipedia.org/wiki/Lab_color_space" target="_blank" rel="noopener noreferrer">LAB</a> color spaces,
-				including 3D color space graphs.
-			</li>
-		</ol>
-		<!--
-		<p>
-			Capture3 is developed using <a href="https://www.jetbrains.com/clion/" target="_blank" rel="noopener noreferrer">JetBrains CLion</a>
-			and can be built on a Mac with macOS Sierra or higher.
-			Although it could support other camera's, it's only been tested using a
-			<a href="http://imaging.nikon.com/lineup/dslr/d3300/" target="_blank" rel="noopener noreferrer">Nikon D3300</a> and
-			<a href="https://www.sigmaphoto.com/lenses/standard-lenses/35mm-f14-dg-hsm-a" target="_blank" rel="noopener noreferrer">Sigma 35mm f/1.4 DG HSM Art</a> lens.
-		</p>
-		-->
-		<h3>Technical details</h3>
-		<ul>
-			<li>Made using <a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a></li>
-			<li>Written in <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener noreferrer">C++</a>
-			<li>Build using <a href="https://cmake.org/" target="_blank" rel="noopener noreferrer">CMake</a>
-		</ul>
-		<div class="gallery">
-			<div>
-				{{> image filename="capture3-interface" alt="Interface with different panels" }}
-				{{> image filename="capture3-panels" alt="Histograms, 3D color space and waveform visualizers" }}
-				{{> image filename="capture3-camera" alt="Camera controls with exposure value matrix" }}
-				{{> image filename="capture3-transform" alt="Color calibration using a ColorChecker Digital SG" }}
-			</div>
-			{{> image-buttons }}
-		</div>
-		<!--
-		<ul>
-			<li><a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a> → Application framework used to create the GUI.</li>
-			<li><a href="http://opencv.org" target="_blank" rel="noopener noreferrer">OpenCV</a> → Image processing library.</li>
-			<li><a href="http://www.openmp.org" target="_blank" rel="noopener noreferrer">OpenMP</a> → Amazing multi‑threading library.</li>
-			<li><a href="http://www.imatest.com/docs/" target="_blank" rel="noopener noreferrer">Imatest</a> → Great resource on color targets and color matrix calculations.</li>
-			<li><a href="http://www.brucelindbloom.com" target="_blank" rel="noopener noreferrer">Bruce Lindbloom</a> → Great resource color space math.</li>
-			<li><a href="http://www.odelama.com/photo/" target="_blank" rel="noopener noreferrer">Oscar de Lama</a> → Great resource on RAW processing.</li>
-		</ul>
-		-->
-		<ul class="links">
-			<li>
-				<a href="/downloads/Capture3.dmg" class="btn btn-icon btn-download">
-					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#icon-download"/>
-					</svg>
-					Capture3.dmg <span>122MB</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://github.com/ferdikoomen/capture3" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
-					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#icon-github"/>
-					</svg>
-					GitHub
-				</a>
-			</li>
-		</ul>
-	</div>
-	<button class="btn btn-close" aria-label="Close project" tabindex="-1">
-		<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-			<use xlink:href="#cross"/>
-		</svg>
-	</button>
+    {{> preview filename="preview-capture3" alt="Capture3" }}
+    <div>
+        <h2>Capture3</h2>
+        <p>
+            C++ research project to learn more about cameras,
+            image processing, color spaces, OpenCV and multi‑threading.
+            <button class="btn btn-more" aria-expanded="false">Read more...</button>
+        </p>
+    </div>
+    <div aria-hidden="true">
+        <p>
+            Capture3 is a C++ desktop application that can capture and process photos through
+            a tethered connection with a digital camera. It started out as a research project
+            to learn more about digital cameras, image processing, color spaces, C++, OpenCV
+            and multi‑threading.
+        </p>
+        <ol>
+            <li>
+                <strong>Tethered capturing:</strong> Automatically capture multiple photos with different
+                <a href="https://en.wikipedia.org/wiki/Exposure_value" target="_blank" rel="noopener noreferrer">exposure values</a> and focus planes, without
+                touching the camera.
+            </li>
+            <li>
+                <strong>Automatic color calibration:</strong> This works by detecting a
+                <a href="http://xritephoto.com/colorchecker-digital-sg" target="_blank" rel="noopener noreferrer">X‑Rite ColorChecker Digital SG</a> target
+                in a photo, then detecting each of the 140 colored patches and
+                calculating a white point and color matrix from these values.
+            </li>
+            <li>
+                <strong>Exposure merging:</strong> Merge photos with different exposure brackets to create a
+                <a href="https://en.wikipedia.org/wiki/High-dynamic-range_imaging" target="_blank" rel="noopener noreferrer">HDR</a> image,
+                using a technique called <a href="https://en.wikipedia.org/wiki/Exposure_fusion" target="_blank" rel="noopener noreferrer">exposure fusion</a>.
+            </li>
+            <li>
+                <strong>Focus merging:</strong> Merge photos with different focal planes using a technique
+                called <a href="https://en.wikipedia.org/wiki/Focus_stacking" target="_blank" rel="noopener noreferrer">focus stacking</a> to create one result
+                image with a higher DOF (Depth Of Field).
+            </li>
+            <li>
+                <strong>Color space visualizer:</strong> Preview images in
+                <a href="https://en.wikipedia.org/wiki/RGB_color_space" target="_blank" rel="noopener noreferrer">RGB</a>,
+                <a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="noopener noreferrer">HSB</a>,
+                <a href="https://en.wikipedia.org/wiki/CIE_1931_color_space" target="_blank" rel="noopener noreferrer">XYZ</a> and
+                <a href="https://en.wikipedia.org/wiki/Lab_color_space" target="_blank" rel="noopener noreferrer">LAB</a> color spaces,
+                including 3D color space graphs.
+            </li>
+        </ol>
+        <!--
+        <p>
+            Capture3 is developed using <a href="https://www.jetbrains.com/clion/" target="_blank" rel="noopener noreferrer">JetBrains CLion</a>
+            and can be built on a Mac with macOS Sierra or higher.
+            Although it could support other camera's, it's only been tested using a
+            <a href="http://imaging.nikon.com/lineup/dslr/d3300/" target="_blank" rel="noopener noreferrer">Nikon D3300</a> and
+            <a href="https://www.sigmaphoto.com/lenses/standard-lenses/35mm-f14-dg-hsm-a" target="_blank" rel="noopener noreferrer">Sigma 35mm f/1.4 DG HSM Art</a> lens.
+        </p>
+        -->
+        <h3>Technical details</h3>
+        <ul>
+            <li>Made using <a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a></li>
+            <li>Written in <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener noreferrer">C++</a>
+            <li>Build using <a href="https://cmake.org/" target="_blank" rel="noopener noreferrer">CMake</a>
+        </ul>
+        <div class="gallery">
+            <div>
+                {{> image filename="capture3-interface" alt="Interface with different panels" }}
+                {{> image filename="capture3-panels" alt="Histograms, 3D color space and waveform visualizers" }}
+                {{> image filename="capture3-camera" alt="Camera controls with exposure value matrix" }}
+                {{> image filename="capture3-transform" alt="Color calibration using a ColorChecker Digital SG" }}
+            </div>
+            {{> image-buttons }}
+        </div>
+        <!--
+        <ul>
+            <li><a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a> → Application framework used to create the GUI.</li>
+            <li><a href="http://opencv.org" target="_blank" rel="noopener noreferrer">OpenCV</a> → Image processing library.</li>
+            <li><a href="http://www.openmp.org" target="_blank" rel="noopener noreferrer">OpenMP</a> → Amazing multi‑threading library.</li>
+            <li><a href="http://www.imatest.com/docs/" target="_blank" rel="noopener noreferrer">Imatest</a> → Great resource on color targets and color matrix calculations.</li>
+            <li><a href="http://www.brucelindbloom.com" target="_blank" rel="noopener noreferrer">Bruce Lindbloom</a> → Great resource color space math.</li>
+            <li><a href="http://www.odelama.com/photo/" target="_blank" rel="noopener noreferrer">Oscar de Lama</a> → Great resource on RAW processing.</li>
+        </ul>
+        -->
+        <ul class="links">
+            <li>
+                <a href="/downloads/Capture3.dmg" class="btn btn-icon btn-download">
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-download"/>
+                    </svg>
+                    Capture3.dmg <span>122MB</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ferdikoomen/capture3" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-github"/>
+                    </svg>
+                    GitHub
+                </a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-close" aria-label="Close project" tabindex="-1">
+        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#cross"/>
+        </svg>
+    </button>
 </section>

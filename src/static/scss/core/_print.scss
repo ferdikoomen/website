@@ -1,28 +1,28 @@
 @page {
-	size: A4;
-	margin: 10mm;
+    size: A4;
+    margin: 10mm;
 }
 
 @media print {
-	html,
-	body {
-		height: auto !important;
-		min-height: 0 !important;
-		background: white !important;
+    html,
+    body {
+        height: auto !important;
+        min-height: 0 !important;
+        background: white !important;
 
-		.container::before,
-		.container::after,
-		.experience,
-		.project,
-		.footer,
-		.btn {
-			display: none !important;
-		}
+        .container::before,
+        .container::after,
+        .experience,
+        .project,
+        .footer,
+        .btn {
+            display: none !important;
+        }
 
-		section {
-			position: relative !important;
-			top: auto !important;
-			transform: none !important;
-		}
-	}
+        section {
+            position: relative !important;
+            top: auto !important;
+            transform: none !important;
+        }
+    }
 }

@@ -1,122 +1,118 @@
-import { Gallery, initGallery } from "./initGallery";
-import { delayedCall } from "./delayedCall";
-import { scrollToPos } from "./scrollToPos";
+import { delayedCall } from './delayedCall';
+import { Gallery, initGallery } from './initGallery';
+import { scrollToPos } from './scrollToPos';
 
 export type Project = {
-	resize: () => void
-}
+    resize: () => void;
+};
 
-export function initProject(
-	element: HTMLElement,
-	moveStart: () => void,
-	moveDone: () => void,
-	move: (height: number) => void
-): Project {
+export function initProject(element: HTMLElement, moveStart: () => void, moveDone: () => void, move: (height: number) => void): Project {
+    const header: HTMLElement = element.querySelectorAll('div')[0] as HTMLElement;
+    const content: HTMLElement = element.querySelectorAll('div')[1] as HTMLElement;
+    const summary: HTMLElement = header.querySelector('p') as HTMLElement;
+    const buttonMore: HTMLElement = element.querySelector('.btn-more') as HTMLElement;
+    const buttonClose: HTMLElement = element.querySelector('.btn-close') as HTMLElement;
+    const gallery: Gallery = initGallery(<HTMLElement>element.querySelector('.gallery'));
+    let isOpen: boolean = false;
 
-	const header: HTMLElement = element.querySelectorAll("div")[0] as HTMLElement;
-	const content: HTMLElement = element.querySelectorAll("div")[1] as HTMLElement;
-	const summary: HTMLElement = header.querySelector("p") as HTMLElement;
-	const buttonMore: HTMLElement = element.querySelector(".btn-more") as HTMLElement;
-	const buttonClose: HTMLElement = element.querySelector(".btn-close") as HTMLElement;
-	const gallery: Gallery = initGallery(<HTMLElement>element.querySelector(".gallery"));
-	let isOpen: boolean = false;
+    function getHeightClosed(): number {
+        if (window.innerWidth >= 740) {
+            return 300;
+        }
+        const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
+        const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
+        const elementPaddingBottom: number = parseFloat(elementStyle.paddingBottom!);
+        return Math.round(header.clientHeight + elementPaddingTop + elementPaddingBottom);
+    }
 
-	function getHeightClosed(): number {
-		if (window.innerWidth >= 740) {
-			return 300;
-		}
-		const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
-		const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
-		const elementPaddingBottom: number = parseFloat(elementStyle.paddingBottom!);
-		return Math.round(header.clientHeight + elementPaddingTop + elementPaddingBottom);
-	}
+    function getHeightOpen(): number {
+        const windowHeight: number = window.innerHeight;
+        const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
+        const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
+        const elementPaddingBottom: number = parseFloat(elementStyle.paddingBottom!);
+        const elementOffset: number = element.getBoundingClientRect().top;
+        const elementHeight: number = header.clientHeight + content.scrollHeight + elementPaddingTop + elementPaddingBottom;
+        return Math.round(Math.min(elementHeight, windowHeight - elementOffset));
+    }
 
-	function getHeightOpen(): number {
-		const windowHeight: number = window.innerHeight;
-		const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
-		const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
-		const elementPaddingBottom: number = parseFloat(elementStyle.paddingBottom!);
-		const elementOffset: number = element.getBoundingClientRect().top;
-		const elementHeight: number = header.clientHeight + content.scrollHeight + elementPaddingTop + elementPaddingBottom;
-		return Math.round(Math.min(elementHeight, windowHeight - elementOffset));
-	}
+    function open(e: MouseEvent): void {
+        if (!isOpen) {
+            isOpen = true;
+            buttonMore.setAttribute('aria-expanded', 'true');
+            content.setAttribute('aria-hidden', 'false');
 
-	function open(e: MouseEvent): void {
-		if (!isOpen) {
-			isOpen = true;
-			buttonMore.setAttribute("aria-expanded", "true");
-			content.setAttribute("aria-hidden", "false");
+            e.preventDefault();
+            e.stopImmediatePropagation();
 
-			e.preventDefault();
-			e.stopImmediatePropagation();
+            const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
+            const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
+            const scrollPos: number = element.offsetTop + elementPaddingTop + 1;
 
-			const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
-			const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
-			const scrollPos: number = element.offsetTop + elementPaddingTop + 1;
+            scrollToPos(scrollPos, () => {
+                element.style.height = `${getHeightClosed()}px`;
+                element.classList.add('open');
+                content.style.top = null!;
+                moveStart();
 
-			scrollToPos(scrollPos, () => {
+                delayedCall(() => {
+                    move(getHeightOpen() - element.clientHeight);
+                    element.style.height = 'auto';
+                    delayedCall(() => {
+                        moveDone();
+                    }, 500);
+                }, 1);
+            });
+        }
+    }
 
-				element.style.height = `${getHeightClosed()}px`;
-				element.classList.add("open");
-				content.style.top = null!;
-				moveStart();
+    function close(e: MouseEvent): void {
+        if (isOpen) {
+            isOpen = false;
+            buttonMore.setAttribute('aria-expanded', 'false');
+            content.setAttribute('aria-hidden', 'true');
 
-				delayedCall(() => {
-					move(getHeightOpen() - element.clientHeight);
-					element.style.height = "auto";
-					delayedCall(() => {
-						moveDone();
-					}, 500);
-				}, 1);
-			});
-		}
-	}
+            e.preventDefault();
+            e.stopImmediatePropagation();
 
-	function close(e: MouseEvent): void {
-		if (isOpen) {
-			isOpen = false;
-			buttonMore.setAttribute("aria-expanded", "false");
-			content.setAttribute("aria-hidden", "true");
+            element.style.height = `${getHeightOpen()}px`;
+            element.classList.remove('open');
+            moveStart();
+            gallery.disable();
 
-			e.preventDefault();
-			e.stopImmediatePropagation();
+            if (window.innerWidth < 740) {
+                const offset: number = Math.round(-summary.clientHeight);
+                content.style.top = `${offset}px`;
+            }
 
-			element.style.height = `${getHeightOpen()}px`;
-			element.classList.remove("open");
-			moveStart();
-			gallery.disable();
+            delayedCall(() => {
+                move(getHeightClosed() - element.clientHeight);
+                delayedCall(() => {
+                    element.style.height = null!;
+                    content.style.top = null!;
+                    moveDone();
+                }, 500);
+            }, 1);
+        }
+    }
 
-			if (window.innerWidth < 740) {
-				const offset: number = Math.round(-summary.clientHeight);
-				content.style.top = `${offset}px`;
-			}
+    function resize(): void {
+        gallery.resize();
+    }
 
-			delayedCall(() => {
-				move(getHeightClosed() - element.clientHeight);
-				delayedCall(() => {
-					element.style.height = null!;
-					content.style.top = null!;
-					moveDone();
-				}, 500);
-			}, 1);
-		}
-	}
+    buttonMore.addEventListener('click', e => open(e), false);
+    buttonClose.addEventListener('click', e => close(e), false);
 
-	function resize(): void {
-		gallery.resize();
-	}
+    element.addEventListener(
+        'click',
+        (e: MouseEvent) => {
+            if (window.innerWidth >= 740) {
+                open(e);
+            }
+        },
+        false
+    );
 
-	buttonMore.addEventListener("click", e => open(e), false);
-	buttonClose.addEventListener("click", e => close(e), false);
-
-	element.addEventListener("click", (e: MouseEvent) => {
-		if (window.innerWidth >= 740) {
-			open(e);
-		}
-	}, false);
-
-	return {
-		resize
-	};
-
+    return {
+        resize,
+    };
 }

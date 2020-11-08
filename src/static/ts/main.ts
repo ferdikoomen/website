@@ -1,5 +1,5 @@
-import "../scss/main.scss";
+import '../scss/main.scss';
 
-import { init } from "./init";
+import { init } from './init';
 
 init();

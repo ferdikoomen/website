@@ -1,357 +1,357 @@
 .project {
-	display: block;
-	position: relative;
-	width: 100%;
-	height: auto;
-	color: $color-text;
-	background: white;
-	overflow: hidden;
-	box-sizing: border-box;
-	padding-top: $preview-ratio;
-	padding-bottom: $line-height * 4;
-	transform: translate(0, 0);
-	transition: transform ease-in-out 400ms;
-	-webkit-touch-callout: none;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	cursor: default;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: $color-text;
+    background: white;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: $preview-ratio;
+    padding-bottom: $line-height * 4;
+    transform: translate(0, 0);
+    transition: transform ease-in-out 400ms;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: default;
 
-	@include from(tablet) {
-		height: 300px;
-		min-height: 300px;
-		padding-top: 0;
-		color: white;
-		border-bottom: none;
-		cursor: pointer;
-	}
+    @include from(tablet) {
+        height: 300px;
+        min-height: 300px;
+        padding-top: 0;
+        color: white;
+        border-bottom: none;
+        cursor: pointer;
+    }
 
-	> picture {
-		display: block;
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: auto;
-		box-sizing: border-box;
-		pointer-events: none;
-		user-select: none;
-		z-index: 1;
+    > picture {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
 
-		@include from(tablet) {
-			position: absolute;
-			right: -270px;
-			width: 630px;
-			height: 100%;
-			padding-top: 0;
-			transition: transform ease-out 400ms;
-		}
+        @include from(tablet) {
+            position: absolute;
+            right: -270px;
+            width: 630px;
+            height: 100%;
+            padding-top: 0;
+            transition: transform ease-out 400ms;
+        }
 
-		@include from(desktop) {
-			right: -120px;
-		}
+        @include from(desktop) {
+            right: -120px;
+        }
 
-		@include from(wide) {
-			right: 0;
-		}
+        @include from(wide) {
+            right: 0;
+        }
 
-		> img {
-			display: block;
-			width: 100%;
-			height: auto;
-			border: none;
-			user-select: none;
-			pointer-events: none;
-			-webkit-touch-callout: none;
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		}
-	}
+        > img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: none;
+            user-select: none;
+            pointer-events: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+    }
 
-	> div:nth-child(2) {
-		position: relative;
-		width: 100%;
-		box-sizing: border-box;
-		z-index: 2;
+    > div:nth-child(2) {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 2;
 
-		@include from(tablet) {
-			width: 380px;
-			pointer-events: none;
-		}
+        @include from(tablet) {
+            width: 380px;
+            pointer-events: none;
+        }
 
-		@include from(desktop) {
-			width: 490px;
-		}
+        @include from(desktop) {
+            width: 490px;
+        }
 
-		@include from(wide) {
-			width: 590px;
-		}
+        @include from(wide) {
+            width: 590px;
+        }
 
-		> h2 {
-			position: relative;
-			font-size: 40px;
-			font-weight: 300;
-			line-height: 40px;
-			margin: 0;
-			padding: $line-height 80px $line-height $padding-side-mobile;
+        > h2 {
+            position: relative;
+            font-size: 40px;
+            font-weight: 300;
+            line-height: 40px;
+            margin: 0;
+            padding: $line-height 80px $line-height $padding-side-mobile;
 
-			@include from(mobile) {
-				padding: $line-height 100px $line-height $padding-side-tablet;
-			}
+            @include from(mobile) {
+                padding: $line-height 100px $line-height $padding-side-tablet;
+            }
 
-			@include from(tablet) {
-				padding: $line-height * 2 $padding-side-tablet $line-height;
-			}
+            @include from(tablet) {
+                padding: $line-height * 2 $padding-side-tablet $line-height;
+            }
 
-			@include from(desktop) {
-				padding: $line-height * 2 $padding-side-desktop $line-height;
-			}
-		}
+            @include from(desktop) {
+                padding: $line-height * 2 $padding-side-desktop $line-height;
+            }
+        }
 
-		> p {
-			position: relative;
-			font-size: $font-size-base;
-			font-weight: 400;
-			font-style: normal;
-			letter-spacing: 0;
-			line-height: $line-height;
-			margin: 0;
-			padding: 0 $padding-side-mobile;
-			max-width: none;
-			visibility: visible;
-			transition: opacity ease-out 200ms 200ms, visibility linear 0ms;
-			transform: translate(0, 0);
-			z-index: 1;
+        > p {
+            position: relative;
+            font-size: $font-size-base;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 0;
+            line-height: $line-height;
+            margin: 0;
+            padding: 0 $padding-side-mobile;
+            max-width: none;
+            visibility: visible;
+            transition: opacity ease-out 200ms 200ms, visibility linear 0ms;
+            transform: translate(0, 0);
+            z-index: 1;
 
-			@include from(mobile) {
-				padding: 0 $padding-side-tablet;
-			}
+            @include from(mobile) {
+                padding: 0 $padding-side-tablet;
+            }
 
-			@include from(tablet) {
-				position: absolute;
-			}
+            @include from(tablet) {
+                position: absolute;
+            }
 
-			@include from(desktop) {
-				padding: 0 $padding-side-desktop;
-				max-width: $padding-side-desktop + $padding-side-desktop + $max-text-width;
-				font-size: $font-size-large;
-				font-style: italic;
-				letter-spacing: 0.2px;
-				line-height: $font-size-large + 6;
-			}
+            @include from(desktop) {
+                padding: 0 $padding-side-desktop;
+                max-width: $padding-side-desktop + $padding-side-desktop + $max-text-width;
+                font-size: $font-size-large;
+                font-style: italic;
+                letter-spacing: 0.2px;
+                line-height: $font-size-large + 6;
+            }
 
-			> .btn-more {
-				display: block;
-				margin-top: $line-height;
+            > .btn-more {
+                display: block;
+                margin-top: $line-height;
 
-				@include until(tablet) {
-					background: $color-highlight;
-				}
-			}
-		}
-	}
+                @include until(tablet) {
+                    background: $color-highlight;
+                }
+            }
+        }
+    }
 
-	> div:nth-child(3) {
-		position: relative;
-		height: 0;
-		box-sizing: border-box;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate(0, 300px);
-		transition: transform ease-in 400ms, opacity ease-in 400ms, visibility linear 0ms 400ms;
-		z-index: 3;
+    > div:nth-child(3) {
+        position: relative;
+        height: 0;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(0, 300px);
+        transition: transform ease-in 400ms, opacity ease-in 400ms, visibility linear 0ms 400ms;
+        z-index: 3;
 
-		> p {
-			a {
-				color: $color-links;
-			}
-		}
+        > p {
+            a {
+                color: $color-links;
+            }
+        }
 
-		> p,
-		> h3,
-		> ul,
-		> ol {
-			padding-left: $padding-side-mobile;
-			padding-right: $padding-side-mobile;
+        > p,
+        > h3,
+        > ul,
+        > ol {
+            padding-left: $padding-side-mobile;
+            padding-right: $padding-side-mobile;
 
-			@include from(mobile) {
-				padding-left: $padding-side-tablet;
-				padding-right: $padding-side-tablet;
-			}
+            @include from(mobile) {
+                padding-left: $padding-side-tablet;
+                padding-right: $padding-side-tablet;
+            }
 
-			@include from(desktop) {
-				padding-left: $padding-side-desktop;
-				padding-right: $padding-side-desktop;
-			}
-		}
+            @include from(desktop) {
+                padding-left: $padding-side-desktop;
+                padding-right: $padding-side-desktop;
+            }
+        }
 
-		> p:first-child {
-			font-size: $font-size-base;
-			font-weight: 400;
-			font-style: normal;
-			letter-spacing: 0;
-			line-height: $line-height;
-			margin-top: 0;
+        > p:first-child {
+            font-size: $font-size-base;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 0;
+            line-height: $line-height;
+            margin-top: 0;
 
-			@include from(desktop) {
-				font-size: $font-size-large;
-				font-style: italic;
-				letter-spacing: 0.2px;
-				line-height: $font-size-large + 6;
-			}
-		}
+            @include from(desktop) {
+                font-size: $font-size-large;
+                font-style: italic;
+                letter-spacing: 0.2px;
+                line-height: $font-size-large + 6;
+            }
+        }
 
-		> h3 {
-			font-size: $font-size-base;
-			font-weight: 700;
-			line-height: $line-height;
-		}
+        > h3 {
+            font-size: $font-size-base;
+            font-weight: 700;
+            line-height: $line-height;
+        }
 
-		> ul,
-		> ol {
-			margin-left: 20px;
+        > ul,
+        > ol {
+            margin-left: 20px;
 
-			a {
-				color: $color-links;
-			}
-		}
+            a {
+                color: $color-links;
+            }
+        }
 
-		> ul.links {
-			margin-left: 0;
-			list-style: none;
+        > ul.links {
+            margin-left: 0;
+            list-style: none;
 
-			> li {
-				&:not(:last-child) {
-					margin-bottom: 12px;
-				}
+            > li {
+                &:not(:last-child) {
+                    margin-bottom: 12px;
+                }
 
-				@include until(tablet) {
-					> .btn,
-					> .btn:hover {
-						background: $color-links;
-					}
-				}
-			}
-		}
-	}
+                @include until(tablet) {
+                    > .btn,
+                    > .btn:hover {
+                        background: $color-links;
+                    }
+                }
+            }
+        }
+    }
 
-	> .btn-close {
-		position: absolute;
-		top: 24px;
-		right: 20px;
-		width: 40px;
-		height: 40px;
-		border-radius: 20px;
-		padding: 0;
-		z-index: 4;
-		transform: translate(100px, 0);
-		transition: fill ease 200ms, transform ease-in 200ms, opacity ease-in 200ms;
-		margin-top: $preview-ratio;
-		fill: #111;
-		opacity: 0;
+    > .btn-close {
+        position: absolute;
+        top: 24px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        padding: 0;
+        z-index: 4;
+        transform: translate(100px, 0);
+        transition: fill ease 200ms, transform ease-in 200ms, opacity ease-in 200ms;
+        margin-top: $preview-ratio;
+        fill: #111;
+        opacity: 0;
 
-		> svg {
-			margin: 5px;
-			width: 30px;
-			height: 30px;
-		}
+        > svg {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+        }
 
-		@include from(mobile) {
-			right: 30px;
-		}
+        @include from(mobile) {
+            right: 30px;
+        }
 
-		@include from(tablet) {
-			top: 46px;
-			right: 40px;
-			fill: white;
-			margin-top: 0;
-		}
+        @include from(tablet) {
+            top: 46px;
+            right: 40px;
+            fill: white;
+            margin-top: 0;
+        }
 
-		@include until(tablet) {
-			background-color: transparent !important;
-		}
-	}
+        @include until(tablet) {
+            background-color: transparent !important;
+        }
+    }
 
-	&:hover {
-		> div:nth-child(2) > p > .btn-more {
-			background: $color-highlight;
-		}
-	}
+    &:hover {
+        > div:nth-child(2) > p > .btn-more {
+            background: $color-highlight;
+        }
+    }
 
-	&.open {
-		cursor: default;
+    &.open {
+        cursor: default;
 
-		@include from(tablet) {
-			> picture {
-				transform: translate(100%, 0);
-				transition: transform ease-in 400ms;
-			}
-		}
+        @include from(tablet) {
+            > picture {
+                transform: translate(100%, 0);
+                transition: transform ease-in 400ms;
+            }
+        }
 
-		> .btn-close {
-			opacity: 1;
-			transform: translate(0, 0);
-			transition: background-color ease 200ms, transform ease-out 200ms 200ms, opacity ease-out 200ms 200ms;
-		}
+        > .btn-close {
+            opacity: 1;
+            transform: translate(0, 0);
+            transition: background-color ease 200ms, transform ease-out 200ms 200ms, opacity ease-out 200ms 200ms;
+        }
 
-		> div:nth-child(2) > p {
-			position: absolute;
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity ease-in 200ms, visibility linear 0ms 200ms;
-		}
+        > div:nth-child(2) > p {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity ease-in 200ms, visibility linear 0ms 200ms;
+        }
 
-		> div:nth-child(3) {
-			opacity: 1;
-			visibility: visible;
-			height: auto;
-			transform: translate(0, 0);
-			transition: transform ease-out 400ms, opacity ease-out 400ms, visibility linear 0ms;
-		}
-	}
+        > div:nth-child(3) {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+            transform: translate(0, 0);
+            transition: transform ease-out 400ms, opacity ease-out 400ms, visibility linear 0ms;
+        }
+    }
 }
 
 #mini {
-	@include from(tablet) {
-		background: $color-project-mini;
-	}
+    @include from(tablet) {
+        background: $color-project-mini;
+    }
 
-	.gallery,
-	.gallery > div > figure {
-		background: $color-project-mini;
-		border-color: $color-project-mini;
-	}
+    .gallery,
+    .gallery > div > figure {
+        background: $color-project-mini;
+        border-color: $color-project-mini;
+    }
 }
 
 #capture3 {
-	@include from(tablet) {
-		background: $color-project-capture3;
-	}
+    @include from(tablet) {
+        background: $color-project-capture3;
+    }
 
-	.gallery,
-	.gallery > div > figure {
-		background: $color-project-capture3;
-		border-color: $color-project-capture3;
-	}
+    .gallery,
+    .gallery > div > figure {
+        background: $color-project-capture3;
+        border-color: $color-project-capture3;
+    }
 }
 
 #folume {
-	@include from(tablet) {
-		background: $color-project-folume;
-	}
+    @include from(tablet) {
+        background: $color-project-folume;
+    }
 
-	.gallery,
-	.gallery > div > figure {
-		background: $color-project-folume;
-		border-color: $color-project-folume;
-	}
+    .gallery,
+    .gallery > div > figure {
+        background: $color-project-folume;
+        border-color: $color-project-folume;
+    }
 }
 
 #iol {
-	@include from(tablet) {
-		background: $color-project-iol;
-	}
+    @include from(tablet) {
+        background: $color-project-iol;
+    }
 
-	.gallery,
-	.gallery > div > figure {
-		background: $color-project-iol;
-		border-color: $color-project-iol;
-	}
+    .gallery,
+    .gallery > div > figure {
+        background: $color-project-iol;
+        border-color: $color-project-iol;
+    }
 }
 

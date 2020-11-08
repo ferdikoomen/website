@@ -1,29 +1,30 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-	height: 100%;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	-ms-overflow-style: scrollbar;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 @at-root {
-	@-ms-viewport {
-		width: device-width;
-	}
+    @-ms-viewport {
+        width: device-width;
+    }
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 article,
@@ -36,22 +37,22 @@ header,
 main,
 nav,
 section {
-	display: block;
+    display: block;
 }
 
 [tabindex="-1"]:focus {
-	outline: none !important;
+    outline: none !important;
 }
 
 hr {
-	box-sizing: content-box;
-	height: 0;
-	overflow: visible;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
 }
 
 img {
-	vertical-align: middle;
-	border-style: none;
+    vertical-align: middle;
+    border-style: none;
 }
 
 a,
@@ -62,30 +63,30 @@ label,
 select,
 summary,
 textarea {
-	touch-action: manipulation;
+    touch-action: manipulation;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
-	background-color: transparent;
-	-webkit-touch-callout: none;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-	&:hover {
-		text-decoration: underline;
-	}
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 textarea {
-	overflow: auto;
-	resize: vertical;
+    overflow: auto;
+    resize: vertical;
 }
 
 [hidden] {
-	display: none !important;
+    display: none !important;
 }

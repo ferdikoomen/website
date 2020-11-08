@@ -1,79 +1,79 @@
 <section class="project" id="folume">
-	{{> preview filename="preview-folume" alt="Folume" }}
-	<div>
-		<h2>Folume</h2>
-		<p>
-			An experimental design and printing tool,
-			made exclusively for the Ultimaker 2 printer.
-			<button class="btn btn-more" aria-expanded="false">Read more...</button>
-		</p>
-	</div>
-	<div aria-hidden="true">
-		<p>
-			Folume is an experimental design and printing tool for the
-			<a href="https://ultimaker.com/en/products/ultimaker-2" target="_blank" rel="noopener noreferrer">Ultimaker 2</a>,
-			that is made using <a href="https://processing.org" target="_blank" rel="noopener noreferrer">Processing</a>.
-		</p>
-		<p>
-			A while ago I wanted to learn more about 3D printing and bought a
-			<a href="https://ultimaker.com/en/products/ultimaker-2" target="_blank" rel="noopener noreferrer">Ultimaker 2</a> 3D printer.
-			Like most people I started my first steps in 3D printing by printing some
-			free 3D models using tools like <a href="https://ultimaker.com/en/products/cura-software" target="_blank" rel="noopener noreferrer">Cura</a>
-			and <a href="https://www.simplify3d.com" target="_blank" rel="noopener noreferrer">Simplify3D</a>. But in order to properly design a model
-			from scratch, I would need to learn additional design tools like
-			<a href="https://www.autodesk.com/products/maya/overview" target="_blank" rel="noopener noreferrer">Maya</a> or
-			<a href="https://www.blender.org" target="_blank" rel="noopener noreferrer">Blender</a>.
-		</p>
-		<p>
-			Instead of learning a new design tool, I wanted to build something that allowed me to
-			understand the details of 3D printing, something that could generate a simple
-			design and send that directly to the printer without any abstraction layers or interpretation.
-		</p>
-		<p>
-			The result is a <a href="https://processing.org" target="_blank" rel="noopener noreferrer">Processing</a> based application
-			that can generate a cylindrical shape design, output it as <a href="http://reprap.org/wiki/G-code" target="_blank" rel="noopener noreferrer">G‑code</a>
-			and send that to the printer via USB. Working with this G‑Code directly allowed me to learn all the settings
-			like temperature, acceleration, feed-rate, retraction, print speed, etc.
-		</p>
-		<h3>Technical details</h3>
-		<ul>
-			<li>Made using <a href="https://processing.org" target="_blank" rel="noopener noreferrer">Processing</a>
-			<li>Written in <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" rel="noopener noreferrer">Java</a>
-			<li>GUI elements via <a href="http://www.sojamo.de/libraries/controlP5/" target="_blank" rel="noopener noreferrer">ControlP5</a>
-		</ul>
-		<div class="gallery">
-			<div>
-				{{> image filename="folume-design-mode" alt="Interface showing design paramaters" }}
-				{{> image filename="folume-print-mode" alt="Interface showing print paramaters" }}
-				{{> video filename="folume-interface" type="video-large" }}
-				{{> video filename="folume-timelapse" type="video-small" }}
-				{{> image filename="folume-printing-1" alt="Ultimaker 2 printing a 3D model" }}
-				{{> image filename="folume-printing-2" alt="Ultimaker 2 printing a 3D model" }}
-			</div>
-			{{> image-buttons }}
-		</div>
-		<ul class="links">
-			<li>
-				<a href="/downloads/Folume.dmg" class="btn btn-icon btn-download">
-					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#icon-download"/>
-					</svg>
-					Folume.dmg <span>184MB</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://github.com/ferdikoomen/folume" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
-					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#icon-github"/>
-					</svg>
-					GitHub
-				</a>
-			</li>
-		</ul>
-	</div>
-	<button class="btn btn-close" aria-label="Close project" tabindex="-1">
-		<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-			<use xlink:href="#cross"/>
-		</svg>
-	</button>
+    {{> preview filename="preview-folume" alt="Folume" }}
+    <div>
+        <h2>Folume</h2>
+        <p>
+            An experimental design and printing tool,
+            made exclusively for the Ultimaker 2 printer.
+            <button class="btn btn-more" aria-expanded="false">Read more...</button>
+        </p>
+    </div>
+    <div aria-hidden="true">
+        <p>
+            Folume is an experimental design and printing tool for the
+            <a href="https://ultimaker.com/en/products/ultimaker-2" target="_blank" rel="noopener noreferrer">Ultimaker 2</a>,
+            that is made using <a href="https://processing.org" target="_blank" rel="noopener noreferrer">Processing</a>.
+        </p>
+        <p>
+            A while ago I wanted to learn more about 3D printing and bought a
+            <a href="https://ultimaker.com/en/products/ultimaker-2" target="_blank" rel="noopener noreferrer">Ultimaker 2</a> 3D printer.
+            Like most people I started my first steps in 3D printing by printing some
+            free 3D models using tools like <a href="https://ultimaker.com/en/products/cura-software" target="_blank" rel="noopener noreferrer">Cura</a>
+            and <a href="https://www.simplify3d.com" target="_blank" rel="noopener noreferrer">Simplify3D</a>. But in order to properly design a model
+            from scratch, I would need to learn additional design tools like
+            <a href="https://www.autodesk.com/products/maya/overview" target="_blank" rel="noopener noreferrer">Maya</a> or
+            <a href="https://www.blender.org" target="_blank" rel="noopener noreferrer">Blender</a>.
+        </p>
+        <p>
+            Instead of learning a new design tool, I wanted to build something that allowed me to
+            understand the details of 3D printing, something that could generate a simple
+            design and send that directly to the printer without any abstraction layers or interpretation.
+        </p>
+        <p>
+            The result is a <a href="https://processing.org" target="_blank" rel="noopener noreferrer">Processing</a> based application
+            that can generate a cylindrical shape design, output it as <a href="http://reprap.org/wiki/G-code" target="_blank" rel="noopener noreferrer">G‑code</a>
+            and send that to the printer via USB. Working with this G‑Code directly allowed me to learn all the settings
+            like temperature, acceleration, feed-rate, retraction, print speed, etc.
+        </p>
+        <h3>Technical details</h3>
+        <ul>
+            <li>Made using <a href="https://processing.org" target="_blank" rel="noopener noreferrer">Processing</a>
+            <li>Written in <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" rel="noopener noreferrer">Java</a>
+            <li>GUI elements via <a href="http://www.sojamo.de/libraries/controlP5/" target="_blank" rel="noopener noreferrer">ControlP5</a>
+        </ul>
+        <div class="gallery">
+            <div>
+                {{> image filename="folume-design-mode" alt="Interface showing design paramaters" }}
+                {{> image filename="folume-print-mode" alt="Interface showing print paramaters" }}
+                {{> video filename="folume-interface" type="video-large" }}
+                {{> video filename="folume-timelapse" type="video-small" }}
+                {{> image filename="folume-printing-1" alt="Ultimaker 2 printing a 3D model" }}
+                {{> image filename="folume-printing-2" alt="Ultimaker 2 printing a 3D model" }}
+            </div>
+            {{> image-buttons }}
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/downloads/Folume.dmg" class="btn btn-icon btn-download">
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-download"/>
+                    </svg>
+                    Folume.dmg <span>184MB</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ferdikoomen/folume" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-github"/>
+                    </svg>
+                    GitHub
+                </a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-close" aria-label="Close project" tabindex="-1">
+        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#cross"/>
+        </svg>
+    </button>
 </section>

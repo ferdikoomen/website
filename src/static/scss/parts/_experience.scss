@@ -1,182 +1,182 @@
 .experience {
-	display: block;
-	position: relative;
-	width: 100%;
-	height: 60px;
-	color: $color-text;
-	background: white;
-	box-sizing: border-box;
-	overflow: hidden;
-	padding: $line-height - 1px $padding-side-mobile 38px;
-	border-top: 1px dotted $color-line-light;
-	transform: translate(0, 0);
-	transition: transform ease-in-out 400ms;
-	-webkit-touch-callout: none;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	cursor: pointer;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    color: $color-text;
+    background: white;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: $line-height - 1px $padding-side-mobile 38px;
+    border-top: 1px dotted $color-line-light;
+    transform: translate(0, 0);
+    transition: transform ease-in-out 400ms;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
 
-	@include from(mobile) {
-		padding: $line-height $padding-side-tablet $line-height * 2;
-		overflow: visible;
-		height: auto;
-		cursor: default;
-	}
+    @include from(mobile) {
+        padding: $line-height $padding-side-tablet $line-height * 2;
+        overflow: visible;
+        height: auto;
+        cursor: default;
+    }
 
-	@include from(tablet) {
-		padding: $line-height * 2 $padding-side-tablet $line-height * 2;
+    @include from(tablet) {
+        padding: $line-height * 2 $padding-side-tablet $line-height * 2;
 
-		&:nth-child(6) {
-			border-top: 1px dotted white;
-		}
-	}
+        &:nth-child(6) {
+            border-top: 1px dotted white;
+        }
+    }
 
-	@include from(desktop) {
-		padding: $line-height * 2 $padding-side-desktop $line-height * 2;
-	}
+    @include from(desktop) {
+        padding: $line-height * 2 $padding-side-desktop $line-height * 2;
+    }
 
-	> h2 {
-		font-size: $font-size-large;
-		font-weight: 600;
-		line-height: $font-size-large;
-		position: relative;
-		margin: 0 0 $font-size-large;
-		pointer-events: none;
+    > h2 {
+        font-size: $font-size-large;
+        font-weight: 600;
+        line-height: $font-size-large;
+        position: relative;
+        margin: 0 0 $font-size-large;
+        pointer-events: none;
 
-		&::before,
-		&::after {
-			display: inline-block;
-			position: relative;
-			top: -1px;
-			width: auto;
-			height: 20px;
-			font-size: $font-size-base;
-			font-weight: 800;
-			text-align: center;
-			line-height: 20px;
-			color: white;
-			border: none;
-			border-radius: 10px;
-			margin: 0;
-			padding: 0;
-		}
+        &::before,
+        &::after {
+            display: inline-block;
+            position: relative;
+            top: -1px;
+            width: auto;
+            height: 20px;
+            font-size: $font-size-base;
+            font-weight: 800;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin: 0;
+            padding: 0;
+        }
 
-		&::before {
-			content: attr(data-count);
-			background: $color-highlight;
-			margin-right: 8px;
-			padding: 0 6px;
-		}
+        &::before {
+            content: attr(data-count);
+            background: $color-highlight;
+            margin-right: 8px;
+            padding: 0 6px;
+        }
 
-		&::after {
-			content: "+";
-			font-family: Arial, sans-serif;
-			font-weight: bold;
-			width: 20px;
-			height: 20px;
-			float: right;
-			background: #666666;
-			transform-origin: 50% 50%;
-			transition: transform ease-in-out 200ms;
+        &::after {
+            content: "+";
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            float: right;
+            background: #666666;
+            transform-origin: 50% 50%;
+            transition: transform ease-in-out 200ms;
 
-			@include from(mobile) {
-				display: none;
-			}
-		}
-	}
+            @include from(mobile) {
+                display: none;
+            }
+        }
+    }
 
-	&.open > h2::after {
-		transform: rotate(45deg);
-	}
+    &.open > h2::after {
+        transform: rotate(45deg);
+    }
 
-	> ul {
-		list-style: none;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		column-gap: 0;
-		column-count: 1;
+    > ul {
+        list-style: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        column-gap: 0;
+        column-count: 1;
 
-		@include from(mobile) {
-			width: 360px;
-			column-count: 2;
-		}
+        @include from(mobile) {
+            width: 360px;
+            column-count: 2;
+        }
 
-		@include from(tablet) {
-			width: auto;
-			column-count: 3;
-		}
+        @include from(tablet) {
+            width: auto;
+            column-count: 3;
+        }
 
-		> li {
-			display: block;
-			margin: 0;
-			padding: 0;
-		}
-	}
+        > li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+    }
 
-	> a {
-		display: inline-block;
-		width: 100px;
-		height: 100px;
-		border: none;
-		font-size: 0;
-		line-height: 0;
-		color: white;
-		background: white no-repeat;
-		background-size: 100px;
-		margin-right: 20px;
-		transform-origin: 50% 50%;
-		transform: scale(0.9, 0.9);
-		transition: transform ease 200ms;
+    > a {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border: none;
+        font-size: 0;
+        line-height: 0;
+        color: white;
+        background: white no-repeat;
+        background-size: 100px;
+        margin-right: 20px;
+        transform-origin: 50% 50%;
+        transform: scale(0.9, 0.9);
+        transition: transform ease 200ms;
 
-		&:last-child {
-			margin-right: 0;
-		}
+        &:last-child {
+            margin-right: 0;
+        }
 
-		&:hover,
-		&:focus {
-			transform: scale(1, 1);
-		}
+        &:hover,
+        &:focus {
+            transform: scale(1, 1);
+        }
 
-		@include from(mobile) {
-			margin-right: 30px;
-		}
+        @include from(mobile) {
+            margin-right: 30px;
+        }
 
-		@include from(tablet) {
-			width: 160px;
-			height: 160px;
-			background-size: 160px;
-		}
+        @include from(tablet) {
+            width: 160px;
+            height: 160px;
+            background-size: 160px;
+        }
 
-		&#robeco {
-			background-image: url("../gfx/logo-robeco.png");
-		}
+        &#robeco {
+            background-image: url("../gfx/logo-robeco.png");
+        }
 
-		&#tomtom {
-			background-image: url("../gfx/logo-tomtom.png");
-		}
+        &#tomtom {
+            background-image: url("../gfx/logo-tomtom.png");
+        }
 
-		&#trivident {
-			background-image: url("../gfx/logo-trivident.png");
-		}
+        &#trivident {
+            background-image: url("../gfx/logo-trivident.png");
+        }
 
-		&#driebit {
-			background-image: url("../gfx/logo-driebit.png");
-		}
+        &#driebit {
+            background-image: url("../gfx/logo-driebit.png");
+        }
 
-		&#kokoro {
-			background-image: url("../gfx/logo-kokoro.png");
-		}
+        &#kokoro {
+            background-image: url("../gfx/logo-kokoro.png");
+        }
 
-		&#ttto {
-			background-image: url("../gfx/logo-ttto.png");
-		}
+        &#ttto {
+            background-image: url("../gfx/logo-ttto.png");
+        }
 
-		&#akqa {
-			background-image: url("../gfx/logo-akqa.png");
-		}
+        &#akqa {
+            background-image: url("../gfx/logo-akqa.png");
+        }
 
-		&#demonsters {
-			background-image: url("../gfx/logo-demonsters.png");
-		}
-	}
+        &#demonsters {
+            background-image: url("../gfx/logo-demonsters.png");
+        }
+    }
 }

@@ -1,90 +1,90 @@
 <section class="project" id="mini">
-	{{> preview filename="preview-mini" alt="Mini Cooper WebGL" }}
-	<div>
-		<h2>Mini Cooper WebGL</h2>
-		<p>
-			Jump a Mini Cooper straight through a wall of boxes with this
-			WebGL and Physics engine demo.
-			<button class="btn btn-more" aria-expanded="false">Read more...</button>
-		</p>
-	</div>
-	<div aria-hidden="true">
-		<p>
-			Select your favorite color and drive a MINI Cooper straight through a wall of boxes.
-			Note that this is a personal project and is not directly related to
-			<a href="https://www.mini.co.uk" target="_blank" rel="noopener noreferrer">BMW / MINI</a>.
-		</p>
-		<p>
-			This project started out as a research project to learn WebGL: How to export models from
-			<a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">Blender</a>, import them in
-			<a href="https://threejs.org" target="_blank" rel="noopener noreferrer">Three.js</a>, assign materials, create lights, etc.
-			To make things more interesting and playful, I've added a
-			<a href="http://kripken.github.io/ammo.js/examples/webgl_demo_vehicle/index.html" target="_blank" rel="noopener noreferrer">physics engine</a>.
-		</p>
-		<p>
-			This project works on both mobile and desktop devices. The mobile version automatically selects a
-			<strong>low-quality</strong> mode, that has no antialiasing, no shadows and uses a low-poly model.
-			The desktop version has a <strong>high-quality</strong> mode that has full antialiasing,
-			real-time shadows and a <a href="https://en.wikipedia.org/wiki/Level_of_detail" target="_blank" rel="noopener noreferrer">LOD model</a>
-			that switches between low-poly and high-poly based on the distance to the camera.
-		</p>
-		<h3>Technical details</h3>
-		<ul>
-			<li>Model via <a href="https://www.cgtrader.com" target="_blank" rel="noopener noreferrer">CG Trader</a></li>
-			<li>Written in <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">TypeScript</a></li>
-			<li>WebGL via <a href="https://threejs.org" target="_blank" rel="noopener noreferrer">Three.js</a></li>
-			<li>Physics via <a href="https://github.com/kripken/ammo.js" target="_blank" rel="noopener noreferrer">Ammo.js</a></li>
-			<li>Build using <a href="https://webpack.github.io" target="_blank" rel="noopener noreferrer">Webpack</a></li>
-		</ul>
-		<div class="gallery">
-			<div>
-				{{> image filename="mini-front-color-3" alt="MINI in yellow paint, seen from the front" }}
-				{{> image filename="mini-side-color-3" alt="MINI in yellow paint, seen from the side" }}
-				{{> image filename="mini-physics-1" alt="Physics engine example 1" }}
-				{{> image filename="mini-physics-2" alt="Physics engine example 2" }}
-				{{> image filename="mini-physics-3" alt="Physics engine example 3" }}
-				{{> image filename="mini-mobile-1" alt="Mobile screenshot 1" }}
-				{{> image filename="mini-mobile-2" alt="Mobile screenshot 2" }}
-				{{> image filename="mini-mobile-3" alt="Mobile screenshot 3" }}
-				{{> image filename="mini-mobile-4" alt="Mobile screenshot 4" }}
-				{{> video filename="mini-capture" type="video-large" }}
-			</div>
-			{{> image-buttons }}
-		</div>
-		<ul class="links">
-			<li>
-				<a href="https://mini.madebyferdi.com" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-link">
-					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#icon-link"/>
-					</svg>
-					Demo
-				</a>
-			</li>
-			<li>
-				<a href="https://github.com/ferdikoomen/mini" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
-					<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#icon-github"/>
-					</svg>
-					GitHub
-				</a>
-			</li>
-		</ul>
-		<!--
-		<p>
-			<kbd>↑</kbd> → Accelerate<br/>
-			<kbd>↓</kbd> → Brake / reverse<br/>
-			<kbd>←</kbd> → Steer left<br/>
-			<kbd>→</kbd> → Steer right<br/>
-			<kbd>p</kbd> → Pause physics engine<br/>
-			<kbd>n</kbd> → Next step (when paused)<br/>
-			<kbd>t</kbd> → Turbo mode<br/>
-			<kbd>spacebar</kbd> → Reset car
-		</p>
-		-->
-	</div>
-	<button class="btn btn-close" aria-label="Close project" tabindex="-1">
-		<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-			<use xlink:href="#cross"/>
-		</svg>
-	</button>
+    {{> preview filename="preview-mini" alt="Mini Cooper WebGL" }}
+    <div>
+        <h2>Mini Cooper WebGL</h2>
+        <p>
+            Jump a Mini Cooper straight through a wall of boxes with this
+            WebGL and Physics engine demo.
+            <button class="btn btn-more" aria-expanded="false">Read more...</button>
+        </p>
+    </div>
+    <div aria-hidden="true">
+        <p>
+            Select your favorite color and drive a MINI Cooper straight through a wall of boxes.
+            Note that this is a personal project and is not directly related to
+            <a href="https://www.mini.co.uk" target="_blank" rel="noopener noreferrer">BMW / MINI</a>.
+        </p>
+        <p>
+            This project started out as a research project to learn WebGL: How to export models from
+            <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">Blender</a>, import them in
+            <a href="https://threejs.org" target="_blank" rel="noopener noreferrer">Three.js</a>, assign materials, create lights, etc.
+            To make things more interesting and playful, I've added a
+            <a href="http://kripken.github.io/ammo.js/examples/webgl_demo_vehicle/index.html" target="_blank" rel="noopener noreferrer">physics engine</a>.
+        </p>
+        <p>
+            This project works on both mobile and desktop devices. The mobile version automatically selects a
+            <strong>low-quality</strong> mode, that has no antialiasing, no shadows and uses a low-poly model.
+            The desktop version has a <strong>high-quality</strong> mode that has full antialiasing,
+            real-time shadows and a <a href="https://en.wikipedia.org/wiki/Level_of_detail" target="_blank" rel="noopener noreferrer">LOD model</a>
+            that switches between low-poly and high-poly based on the distance to the camera.
+        </p>
+        <h3>Technical details</h3>
+        <ul>
+            <li>Model via <a href="https://www.cgtrader.com" target="_blank" rel="noopener noreferrer">CG Trader</a></li>
+            <li>Written in <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">TypeScript</a></li>
+            <li>WebGL via <a href="https://threejs.org" target="_blank" rel="noopener noreferrer">Three.js</a></li>
+            <li>Physics via <a href="https://github.com/kripken/ammo.js" target="_blank" rel="noopener noreferrer">Ammo.js</a></li>
+            <li>Build using <a href="https://webpack.github.io" target="_blank" rel="noopener noreferrer">Webpack</a></li>
+        </ul>
+        <div class="gallery">
+            <div>
+                {{> image filename="mini-front-color-3" alt="MINI in yellow paint, seen from the front" }}
+                {{> image filename="mini-side-color-3" alt="MINI in yellow paint, seen from the side" }}
+                {{> image filename="mini-physics-1" alt="Physics engine example 1" }}
+                {{> image filename="mini-physics-2" alt="Physics engine example 2" }}
+                {{> image filename="mini-physics-3" alt="Physics engine example 3" }}
+                {{> image filename="mini-mobile-1" alt="Mobile screenshot 1" }}
+                {{> image filename="mini-mobile-2" alt="Mobile screenshot 2" }}
+                {{> image filename="mini-mobile-3" alt="Mobile screenshot 3" }}
+                {{> image filename="mini-mobile-4" alt="Mobile screenshot 4" }}
+                {{> video filename="mini-capture" type="video-large" }}
+            </div>
+            {{> image-buttons }}
+        </div>
+        <ul class="links">
+            <li>
+                <a href="https://mini.madebyferdi.com" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-link">
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-link"/>
+                    </svg>
+                    Demo
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ferdikoomen/mini" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-github">
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-github"/>
+                    </svg>
+                    GitHub
+                </a>
+            </li>
+        </ul>
+        <!--
+        <p>
+            <kbd>↑</kbd> → Accelerate<br/>
+            <kbd>↓</kbd> → Brake / reverse<br/>
+            <kbd>←</kbd> → Steer left<br/>
+            <kbd>→</kbd> → Steer right<br/>
+            <kbd>p</kbd> → Pause physics engine<br/>
+            <kbd>n</kbd> → Next step (when paused)<br/>
+            <kbd>t</kbd> → Turbo mode<br/>
+            <kbd>spacebar</kbd> → Reset car
+        </p>
+        -->
+    </div>
+    <button class="btn btn-close" aria-label="Close project" tabindex="-1">
+        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#cross"/>
+        </svg>
+    </button>
 </section>

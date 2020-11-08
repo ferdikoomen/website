@@ -1,66 +1,66 @@
 $breakpoints: (
-	mobile: $breakpoint-mobile,
-	tablet: $breakpoint-tablet,
-	desktop: $breakpoint-desktop,
-	wide: $breakpoint-wide,
-	superwide: $breakpoint-superwide,
-	ultrawide: $breakpoint-ultrawide
+    mobile: $breakpoint-mobile,
+    tablet: $breakpoint-tablet,
+    desktop: $breakpoint-desktop,
+    wide: $breakpoint-wide,
+    superwide: $breakpoint-superwide,
+    ultrawide: $breakpoint-ultrawide
 ) !default;
 
 @function get-breakpoint($name) {
-	@if map-has-key($breakpoints, $name) {
-		@return map-get($breakpoints, $name);
-	} @else {
-		@warn "Breakpoint #{$name} wasn't found in $breakpoints.";
-	}
+    @if map-has-key($breakpoints, $name) {
+        @return map-get($breakpoints, $name);
+    } @else {
+        @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+    }
 }
 
 @mixin media(
-	$from: false,
-	$until: false
+    $from: false,
+    $until: false
 ) {
-	$min-width: 0;
-	$max-width: 0;
-	$media-query: "";
-	$media-type: screen;
+    $min-width: 0;
+    $max-width: 0;
+    $media-query: "";
+    $media-type: screen;
 
-	@if $from {
-		@if type-of($from) == number {
-			$min-width: $from;
-		} @else {
-			$min-width: get-breakpoint($from);
-		}
-	}
+    @if $from {
+        @if type-of($from) == number {
+            $min-width: $from;
+        } @else {
+            $min-width: get-breakpoint($from);
+        }
+    }
 
-	@if $until {
-		@if type-of($from) == number {
-			$max-width: $until;
-		} @else {
-			$max-width: get-breakpoint($until) - 1px;
-		}
-	}
+    @if $until {
+        @if type-of($from) == number {
+            $max-width: $until;
+        } @else {
+            $max-width: get-breakpoint($until) - 1px;
+        }
+    }
 
-	@if $min-width != 0 {
-		$media-query: "#{$media-query} and (min-width: #{$min-width})";
-	}
+    @if $min-width != 0 {
+        $media-query: "#{$media-query} and (min-width: #{$min-width})";
+    }
 
-	@if $max-width != 0 {
-		$media-query: "#{$media-query} and (max-width: #{$max-width})";
-	}
+    @if $max-width != 0 {
+        $media-query: "#{$media-query} and (max-width: #{$max-width})";
+    }
 
-	@media #{$media-type + $media-query} {
-		@content;
-	}
+    @media #{$media-type + $media-query} {
+        @content;
+    }
 }
 
 @mixin until($name) {
-	@include media($until: $name) {
-		@content;
-	}
+    @include media($until: $name) {
+        @content;
+    }
 }
 
 @mixin from($name) {
-	@include media($from: $name) {
-		@content;
-	}
+    @include media($from: $name) {
+        @content;
+    }
 }
