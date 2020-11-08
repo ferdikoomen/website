@@ -8,7 +8,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
 
@@ -54,9 +53,7 @@ module.exports = {
             }, {
                 loader: 'ts-loader',
                 options: {
-                    experimentalWatchApi: true,
-                    onlyCompileBundledFiles: true,
-                    transpileOnly: true
+                    onlyCompileBundledFiles: true
                 }
             }]
         }, {
@@ -117,10 +114,6 @@ module.exports = {
         new webpack.EnvironmentPlugin({
             NODE_ENV: 'development',
             DEBUG: true
-        }),
-
-        new ForkTsCheckerWebpackPlugin({
-            async: false
         }),
 
         new CopyWebpackPlugin({
