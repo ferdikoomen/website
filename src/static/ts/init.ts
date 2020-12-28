@@ -49,7 +49,7 @@ function resize(): void {
 }
 
 export function init(): void {
-    const sectionElements: NodeListOf<HTMLElement> = document.querySelectorAll('section');
+    const sectionElements: NodeListOf<HTMLElement> = document.querySelectorAll('header,section,footer');
     const projectElements: NodeListOf<HTMLElement> = document.querySelectorAll('.project');
     const experienceElements: NodeListOf<HTMLElement> = document.querySelectorAll('.experience');
     let index: number = 1;

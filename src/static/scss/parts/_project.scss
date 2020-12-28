@@ -343,15 +343,15 @@
     }
 }
 
-#iol {
+#smartparks {
     @include from(tablet) {
-        background: $color-project-iol;
+        background: $color-project-smartparks;
     }
 
     .gallery,
     .gallery > div > figure {
-        background: $color-project-iol;
-        border-color: $color-project-iol;
+        background: $color-project-smartparks;
+        border-color: $color-project-smartparks;
     }
 }
 

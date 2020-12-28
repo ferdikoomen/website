@@ -15,8 +15,8 @@ convert preview-capture3.png -thumbnail 630 -quality 95 -strip -colorspace sRGB 
 convert preview-capture3.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB preview-capture3@2x.jpg
 convert preview-folume.png -thumbnail 630 -quality 95 -strip -colorspace sRGB preview-folume.jpg
 convert preview-folume.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB preview-folume@2x.jpg
-convert preview-iol.png -thumbnail 630 -quality 95 -strip -colorspace sRGB preview-iol.jpg
-convert preview-iol.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB preview-iol@2x.jpg
+convert preview-smartparks.png -thumbnail 630 -quality 95 -strip -colorspace sRGB preview-smartparks.jpg
+convert preview-smartparks.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB preview-smartparks@2x.jpg
 convert preview-mini.png -thumbnail 630 -quality 95 -strip -colorspace sRGB preview-mini.jpg
 convert preview-mini.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB preview-mini@2x.jpg
 
@@ -24,7 +24,7 @@ convert preview-capture3.png -thumbnail 630 -quality 95 -strip -colorspace sRGB 
 convert preview-capture3.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB -define webp:lossless=false preview-capture3@2x.webp
 convert preview-folume.png -thumbnail 630 -quality 95 -strip -colorspace sRGB -define webp:lossless=false preview-folume.webp
 convert preview-folume.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB -define webp:lossless=false preview-folume@2x.webp
-convert preview-iol.png -thumbnail 630 -quality 95 -strip -colorspace sRGB -define webp:lossless=false preview-iol.webp
-convert preview-iol.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB -define webp:lossless=false preview-iol@2x.webp
+convert preview-smartparks.png -thumbnail 630 -quality 95 -strip -colorspace sRGB -define webp:lossless=false preview-smartparks.webp
+convert preview-smartparks.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB -define webp:lossless=false preview-smartparks@2x.webp
 convert preview-mini.png -thumbnail 630 -quality 95 -strip -colorspace sRGB -define webp:lossless=false preview-mini.webp
 convert preview-mini.png -thumbnail 1260 -quality 85 -strip -colorspace sRGB -define webp:lossless=false preview-mini@2x.webp
