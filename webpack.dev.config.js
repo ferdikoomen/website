@@ -120,13 +120,13 @@ module.exports = {
             patterns: [
                 {from: 'src/robots.txt', to: '.'},
                 {from: 'src/sitemap.xml', to: '.'},
-                {from: 'src/static/images/*.jpg', to: 'static/images/', flatten: true},
-                {from: 'src/static/images/*.webp', to: 'static/images/', flatten: true},
-                {from: 'src/static/videos/*.mp4', to: 'static/videos/', flatten: true},
-                {from: 'src/static/gfx/*.jpg', to: 'static/gfx/', flatten: true},
-                {from: 'src/static/gfx/*.webp', to: 'static/gfx/', flatten: true},
-                {from: 'src/static/gfx/*.png', to: 'static/gfx/', flatten: true},
-                {from: 'src/static/gfx/*.svg', to: 'static/gfx/', flatten: true}
+                {from: 'src/static/images/**/*.jpg', to: 'static/images/[name][ext]'},
+                {from: 'src/static/images/**/*.webp', to: 'static/images/[name][ext]'},
+                {from: 'src/static/videos/**/*.mp4', to: 'static/videos/[name][ext]'},
+                {from: 'src/static/gfx/**/*.jpg', to: 'static/gfx/[name][ext]'},
+                {from: 'src/static/gfx/**/*.webp', to: 'static/gfx/[name][ext]'},
+                {from: 'src/static/gfx/**/*.png', to: 'static/gfx/[name][ext]'},
+                {from: 'src/static/gfx/**/*.svg', to: 'static/gfx/[name][ext]'}
             ]
         }),
 
@@ -139,14 +139,14 @@ module.exports = {
             filename: 'index.html',
             favicon: 'src/static/gfx/favicon.ico',
             hash: false,
-            inject: true,
             compile: true,
             cache: true,
             showErrors: true,
             minify: false,
+            inject: 'body',
             inlineSource: '.(js|css)$',
             chunksSortMode: 'manual',
-            chunks: ['main']
+            chunks: ['main'],
         }),
 
         new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin)
