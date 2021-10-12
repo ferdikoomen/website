@@ -76,29 +76,23 @@ module.exports = {
         }, {
             test: /\.(eot|otf|ttf|woff|woff2)$/,
             include: path.resolve(__dirname, 'src/static/fonts'),
-            loader: 'file-loader',
-            options: {
-                publicPath: '/static/fonts/',
-                outputPath: 'static/fonts/',
-                name: '[name].[ext]'
+            type: 'asset/resource',
+            generator: {
+                filename: 'static/fonts/[name][ext]'
             }
         }, {
             test: /\.(jpg|png|webp|gif|svg|ico)$/,
             include: path.resolve(__dirname, 'src/static/gfx'),
-            loader: 'file-loader',
-            options: {
-                publicPath: '/static/gfx/',
-                outputPath: 'static/gfx/',
-                name: '[name].[ext]'
+            type: 'asset/resource',
+            generator: {
+                filename: 'static/gfx/[name][ext]'
             }
         }, {
             test: /\.(jpg|png|webp)$/,
             include: path.resolve(__dirname, 'src/static/images'),
-            loader: 'file-loader',
-            options: {
-                publicPath: '/static/images/',
-                outputPath: 'static/images/',
-                name: '[name].[ext]'
+            type: 'asset/resource',
+            generator: {
+                filename: 'static/images/[name][ext]'
             }
         }, {
             test: /\.hbs$/,
