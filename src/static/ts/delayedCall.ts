@@ -1,13 +1,13 @@
-export function delayedCall(callback: () => void, delay: number): void {
-    const time: number = Date.now() + delay;
+export const delayedCall = (callback: () => void, delay: number) => {
+    const time = Date.now() + delay;
 
-    function check(): void {
+    const check = () => {
         if (Date.now() >= time) {
             callback();
         } else {
             requestAnimationFrame(() => check());
         }
-    }
+    };
 
     requestAnimationFrame(() => check());
-}
+};

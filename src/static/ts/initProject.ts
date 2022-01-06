@@ -1,41 +1,41 @@
 import { delayedCall } from './delayedCall';
-import { Gallery, initGallery } from './initGallery';
+import { initGallery } from './initGallery';
 import { scrollToPos } from './scrollToPos';
 
 export type Project = {
     resize: () => void;
 };
 
-export function initProject(element: HTMLElement, moveStart: () => void, moveDone: () => void, move: (height: number) => void): Project {
-    const header: HTMLElement = element.querySelectorAll('div')[0] as HTMLElement;
-    const content: HTMLElement = element.querySelectorAll('div')[1] as HTMLElement;
-    const summary: HTMLElement = header.querySelector('p') as HTMLElement;
-    const buttonMore: HTMLElement = element.querySelector('.btn-more') as HTMLElement;
-    const buttonClose: HTMLElement = element.querySelector('.btn-close') as HTMLElement;
-    const gallery: Gallery = initGallery(<HTMLElement>element.querySelector('.gallery'));
-    let isOpen: boolean = false;
+export const initProject = (element: HTMLElement, moveStart: () => void, moveDone: () => void, move: (height: number) => void): Project => {
+    const header = element.querySelectorAll('div')[0] as HTMLElement;
+    const content = element.querySelectorAll('div')[1] as HTMLElement;
+    const summary = header.querySelector('p') as HTMLElement;
+    const buttonMore = element.querySelector('.btn-more') as HTMLElement;
+    const buttonClose = element.querySelector('.btn-close') as HTMLElement;
+    const gallery = initGallery(element.querySelector('.gallery') as HTMLElement);
+    let isOpen = false;
 
-    function getHeightClosed(): number {
+    const getHeightClosed = () => {
         if (window.innerWidth >= 740) {
             return 300;
         }
-        const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
-        const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
-        const elementPaddingBottom: number = parseFloat(elementStyle.paddingBottom!);
+        const elementStyle = window.getComputedStyle(element);
+        const elementPaddingTop = parseFloat(elementStyle.paddingTop!);
+        const elementPaddingBottom = parseFloat(elementStyle.paddingBottom!);
         return Math.round(header.clientHeight + elementPaddingTop + elementPaddingBottom);
-    }
+    };
 
-    function getHeightOpen(): number {
-        const windowHeight: number = window.innerHeight;
-        const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
-        const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
-        const elementPaddingBottom: number = parseFloat(elementStyle.paddingBottom!);
-        const elementOffset: number = element.getBoundingClientRect().top;
-        const elementHeight: number = header.clientHeight + content.scrollHeight + elementPaddingTop + elementPaddingBottom;
+    const getHeightOpen = () => {
+        const windowHeight = window.innerHeight;
+        const elementStyle = window.getComputedStyle(element);
+        const elementPaddingTop = parseFloat(elementStyle.paddingTop!);
+        const elementPaddingBottom = parseFloat(elementStyle.paddingBottom!);
+        const elementOffset = element.getBoundingClientRect().top;
+        const elementHeight = header.clientHeight + content.scrollHeight + elementPaddingTop + elementPaddingBottom;
         return Math.round(Math.min(elementHeight, windowHeight - elementOffset));
-    }
+    };
 
-    function open(e: MouseEvent): void {
+    const open = (e: MouseEvent) => {
         if (!isOpen) {
             isOpen = true;
             buttonMore.setAttribute('aria-expanded', 'true');
@@ -44,9 +44,9 @@ export function initProject(element: HTMLElement, moveStart: () => void, moveDon
             e.preventDefault();
             e.stopImmediatePropagation();
 
-            const elementStyle: CSSStyleDeclaration = window.getComputedStyle(element);
-            const elementPaddingTop: number = parseFloat(elementStyle.paddingTop!);
-            const scrollPos: number = element.offsetTop + elementPaddingTop + 1;
+            const elementStyle = window.getComputedStyle(element);
+            const elementPaddingTop = parseFloat(elementStyle.paddingTop!);
+            const scrollPos = element.offsetTop + elementPaddingTop + 1;
 
             scrollToPos(scrollPos, () => {
                 element.style.height = `${getHeightClosed()}px`;
@@ -63,9 +63,9 @@ export function initProject(element: HTMLElement, moveStart: () => void, moveDon
                 }, 1);
             });
         }
-    }
+    };
 
-    function close(e: MouseEvent): void {
+    const close = (e: MouseEvent) => {
         if (isOpen) {
             isOpen = false;
             buttonMore.setAttribute('aria-expanded', 'false');
@@ -80,7 +80,7 @@ export function initProject(element: HTMLElement, moveStart: () => void, moveDon
             gallery.disable();
 
             if (window.innerWidth < 740) {
-                const offset: number = Math.round(-summary.clientHeight);
+                const offset = Math.round(-summary.clientHeight);
                 content.style.top = `${offset}px`;
             }
 
@@ -93,11 +93,11 @@ export function initProject(element: HTMLElement, moveStart: () => void, moveDon
                 }, 500);
             }, 1);
         }
-    }
+    };
 
-    function resize(): void {
+    const resize = () => {
         gallery.resize();
-    }
+    };
 
     buttonMore.addEventListener('click', e => open(e), false);
     buttonClose.addEventListener('click', e => close(e), false);
@@ -115,4 +115,4 @@ export function initProject(element: HTMLElement, moveStart: () => void, moveDon
     return {
         resize,
     };
-}
+};

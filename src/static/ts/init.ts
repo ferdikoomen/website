@@ -5,11 +5,11 @@ import { initProject, Project } from './initProject';
 const elements: HTMLElement[] = [];
 const projects: Project[] = [];
 
-function setPosition(): void {
-    let height: number = 0;
+const setPosition = () => {
+    let height = 0;
 
-    for (let i: number = 0, n = elements.length; i < n; i++) {
-        const element: HTMLElement = elements[i];
+    for (let i = 0, n = elements.length; i < n; i++) {
+        const element = elements[i];
         element.style.position = 'absolute';
         element.style.position = 'absolute';
         element.style.top = `${height}px`;
@@ -21,48 +21,48 @@ function setPosition(): void {
     }
 
     document.body.style.height = `${height}px`;
-}
+};
 
-function onMoveStart(): void {
+const onMoveStart = () => {
     setPosition();
 
-    for (let i: number = 0, n = elements.length; i < n; i++) {
-        const element: HTMLElement = elements[i];
+    for (let i = 0, n = elements.length; i < n; i++) {
+        const element = elements[i];
         element.style.transition = '';
         element.style.webkitTransition = '';
     }
-}
+};
 
-function onMove(height: number, index: number): void {
-    for (let i: number = index + 1, n = elements.length; i < n; i++) {
-        const element: HTMLElement = elements[i];
+const onMove = (height: number, index: number) => {
+    for (let i = index + 1, n = elements.length; i < n; i++) {
+        const element = elements[i];
         element.style.transform = `translate(0, ${height}px)`;
         element.style.webkitTransform = `translate(0, ${height}px)`;
     }
-}
+};
 
-function resize(): void {
+const resize = () => {
     setPosition();
-    for (let i: number = 0, n = projects.length; i < n; i++) {
+    for (let i = 0, n = projects.length; i < n; i++) {
         projects[i].resize();
     }
-}
+};
 
-export function init(): void {
-    const sectionElements: NodeListOf<HTMLElement> = document.querySelectorAll('header,section,footer');
-    const projectElements: NodeListOf<HTMLElement> = document.querySelectorAll('.project');
-    const experienceElements: NodeListOf<HTMLElement> = document.querySelectorAll('.experience');
-    let index: number = 1;
+export const init = () => {
+    const sectionElements = document.querySelectorAll('header,section,footer');
+    const projectElements = document.querySelectorAll('.project');
+    const experienceElements = document.querySelectorAll('.experience');
+    let index = 1;
 
-    for (let i: number = 0, n = sectionElements.length; i < n; i++) {
-        elements.push(sectionElements[i]);
+    for (let i = 0, n = sectionElements.length; i < n; i++) {
+        elements.push(sectionElements[i] as HTMLElement);
     }
 
-    for (let i: number = 0, n = projectElements.length; i < n; i++) {
-        const j: number = index++;
+    for (let i = 0, n = projectElements.length; i < n; i++) {
+        const j = index++;
         projects.push(
             initProject(
-                projectElements[i],
+                projectElements[i] as HTMLElement,
                 () => onMoveStart(),
                 () => setPosition(),
                 (height: number) => onMove(height, j)
@@ -70,17 +70,17 @@ export function init(): void {
         );
     }
 
-    for (let i: number = 0, n = experienceElements.length; i < n; i++) {
-        const j: number = index++;
+    for (let i = 0, n = experienceElements.length; i < n; i++) {
+        const j = index++;
         initExperience(
-            experienceElements[i],
+            experienceElements[i] as HTMLElement,
             () => onMoveStart(),
             () => setPosition(),
             (height: number) => onMove(height, j)
         );
     }
 
-    const fonts: any = (<any>document).fonts;
+    const fonts = (<any>document).fonts;
     fonts &&
         fonts.ready.then(() => {
             delayedCall(() => {
@@ -106,4 +106,4 @@ export function init(): void {
 
     delayedCall(() => resize(), 100);
     resize();
-}
+};

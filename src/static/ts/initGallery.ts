@@ -3,33 +3,33 @@ export type Gallery = {
     disable: () => void;
 };
 
-export function initGallery(element: HTMLElement): Gallery {
+export const initGallery = (element: HTMLElement): Gallery => {
     const slides: HTMLElement[] = [];
     const dots: HTMLElement[] = [];
     const videos: (HTMLVideoElement | null)[] = [];
-    const wrapper: HTMLElement = element.querySelector('div') as HTMLElement;
-    const figures: NodeListOf<HTMLElement> = element.querySelectorAll('figure');
-    const count: number = figures.length;
+    const wrapper = element.querySelector('div') as HTMLElement;
+    const figures = element.querySelectorAll('figure');
+    const count = figures.length;
     const velocities: { position: number; time: number }[] = [];
 
-    let index: number = 0;
-    let offset: number = 0;
-    let widthItem: number = 0;
-    let down: boolean = false;
-    let first: boolean = true;
-    let locked: boolean = false;
-    let startX: number = 0;
-    let startY: number = 0;
-    let pos: number = 0;
-    let inView: boolean = false;
+    let index = 0;
+    let offset = 0;
+    let widthItem = 0;
+    let down = false;
+    let first = true;
+    let locked = false;
+    let startX = 0;
+    let startY = 0;
+    let pos = 0;
+    let inView = false;
 
-    function setOffset(value: number): void {
+    const setOffset = (value: number) => {
         offset = value;
         wrapper.style.transform = `translate(${offset}px, 0)`;
         wrapper.style.webkitTransform = `translate(${offset}px, 0)`;
-    }
+    };
 
-    function show(indexNext: number): void {
+    const show = (indexNext: number) => {
         indexNext = indexNext < 0 ? 0 : indexNext > count - 1 ? count - 1 : indexNext;
 
         if (indexNext !== index) {
@@ -59,28 +59,28 @@ export function initGallery(element: HTMLElement): Gallery {
         dots[index].className = 'active';
         buttonPrev.setAttribute('aria-hidden', index > 0 ? 'false' : 'true');
         buttonNext.setAttribute('aria-hidden', index < count - 1 ? 'false' : 'true');
-    }
+    };
 
-    function onClickNext(e: MouseEvent): void {
+    const onClickNext = (e: MouseEvent) => {
         if (!down) {
             e.preventDefault();
             e.stopImmediatePropagation();
             show(index + 1);
         }
-    }
+    };
 
-    function onClickPrev(e: MouseEvent): void {
+    const onClickPrev = (e: MouseEvent) => {
         if (!down) {
             e.preventDefault();
             e.stopImmediatePropagation();
             show(index - 1);
         }
-    }
+    };
 
-    function onScroll(): void {
-        const video: HTMLVideoElement | null = videos[index];
-        const rect: ClientRect = element.getBoundingClientRect();
-        const center: number = rect.top + rect.height / 2;
+    const onScroll = () => {
+        const video = videos[index];
+        const rect = element.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
         inView = center >= 0 && center <= window.innerHeight;
 
         try {
@@ -94,18 +94,18 @@ export function initGallery(element: HTMLElement): Gallery {
         } catch (e) {
             // console.log(e);
         }
-    }
+    };
 
-    function onKeyDown(e: KeyboardEvent): void {
+    const onKeyDown = (e: KeyboardEvent) => {
         if (inView && e.keyCode === 37) {
             show(index - 1);
         }
         if (inView && e.keyCode === 39) {
             show(index + 1);
         }
-    }
+    };
 
-    function onTouchStart(e: any): void {
+    const onTouchStart = (e: any) => {
         if (!down) {
             down = true;
             startX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
@@ -119,22 +119,22 @@ export function initGallery(element: HTMLElement): Gallery {
                 });
             }
 
-            const left: number = wrapper.getBoundingClientRect().left - element.getBoundingClientRect().left;
+            const left = wrapper.getBoundingClientRect().left - element.getBoundingClientRect().left;
             wrapper.style.transition = 'none';
             wrapper.style.webkitTransition = 'none';
             wrapper.classList.add('grabbing');
             setOffset(left);
         }
-    }
+    };
 
-    function onTouchMove(e: any): void {
+    const onTouchMove = (e: any) => {
         if (down) {
-            const posX: number = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
-            const posY: number = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
+            const posX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
+            const posY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
 
             if (first) {
                 first = false;
-                const angle: number = Math.abs((Math.atan2(posY - startY, posX - startX) * 180) / Math.PI);
+                const angle = Math.abs((Math.atan2(posY - startY, posX - startX) * 180) / Math.PI);
                 locked = (angle >= 0 && angle <= 45) || (angle >= 135 && angle <= 180);
             }
 
@@ -142,7 +142,7 @@ export function initGallery(element: HTMLElement): Gallery {
                 e.preventDefault();
                 e.stopImmediatePropagation();
 
-                const diff: number = posX - pos;
+                const diff = posX - pos;
                 pos = posX;
                 setOffset(offset + diff);
 
@@ -152,13 +152,13 @@ export function initGallery(element: HTMLElement): Gallery {
                 });
             }
         }
-    }
+    };
 
-    function onTouchEnd(): void {
+    const onTouchEnd = () => {
         if (down) {
             down = false;
 
-            let velocity: number = 0;
+            let velocity = 0;
             if (velocities.length > 1) {
                 const eventA = velocities.pop();
                 const eventB = velocities.pop();
@@ -182,9 +182,9 @@ export function initGallery(element: HTMLElement): Gallery {
             wrapper.classList.remove('grabbing');
             show(velocity < 0 ? index + 1 : velocity > 0 ? index - 1 : index);
         }
-    }
+    };
 
-    function resize(): void {
+    const resize = () => {
         wrapper.style.transition = 'none';
         wrapper.style.webkitTransition = 'none';
         widthItem = element.clientWidth;
@@ -194,9 +194,9 @@ export function initGallery(element: HTMLElement): Gallery {
             wrapper.style.transition = '';
             wrapper.style.webkitTransition = '';
         });
-    }
+    };
 
-    function disable(): void {
+    const disable = () => {
         inView = false;
         for (const video of videos) {
             if (video !== null) {
@@ -208,11 +208,11 @@ export function initGallery(element: HTMLElement): Gallery {
                 }
             }
         }
-    }
+    };
 
-    for (let i: number = 0, n = figures.length; i < n; i++) {
-        const figure: HTMLElement = figures[i];
-        const video: HTMLVideoElement | null = figure.querySelector('video');
+    for (let i = 0, n = figures.length; i < n; i++) {
+        const figure = figures[i];
+        const video = figure.querySelector('video');
         if (video !== null) {
             video.addEventListener('waiting', () => {
                 figure.classList.add('loading');
@@ -225,9 +225,9 @@ export function initGallery(element: HTMLElement): Gallery {
         slides.push(figure);
     }
 
-    const ol: HTMLElement = document.createElement('ol');
-    for (let i: number = 0; i < count; i++) {
-        const li: HTMLElement = document.createElement('li');
+    const ol = document.createElement('ol');
+    for (let i = 0; i < count; i++) {
+        const li = document.createElement('li');
         li.addEventListener('click', (e: MouseEvent) => {
             e.preventDefault();
             e.stopImmediatePropagation();
@@ -240,8 +240,8 @@ export function initGallery(element: HTMLElement): Gallery {
     }
     element.appendChild(ol);
 
-    const buttonPrev: HTMLElement = element.querySelector('.btn.prev') as HTMLElement;
-    const buttonNext: HTMLElement = element.querySelector('.btn.next') as HTMLElement;
+    const buttonPrev = element.querySelector('.btn.prev') as HTMLElement;
+    const buttonNext = element.querySelector('.btn.next') as HTMLElement;
     buttonPrev.addEventListener('click', e => onClickPrev(e), false);
     buttonNext.addEventListener('click', e => onClickNext(e), false);
     element.addEventListener('mousedown', e => onTouchStart(e), false);
@@ -257,4 +257,4 @@ export function initGallery(element: HTMLElement): Gallery {
         resize,
         disable,
     };
-}
+};

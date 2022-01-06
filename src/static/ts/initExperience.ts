@@ -1,20 +1,20 @@
 import { delayedCall } from './delayedCall';
 
 export function initExperience(element: HTMLElement, moveStart: () => void, moveDone: () => void, move: (height: number) => void): void {
-    let isOpen: boolean = false;
+    let isOpen = false;
 
-    function setHeight(value: number): void {
+    const setHeight = (value: number) => {
         element.style.height = `${value}px`;
-    }
+    };
 
-    function getHeightOpen(): number {
-        const windowHeight: number = window.innerHeight;
-        const elementOffset: number = element.getBoundingClientRect().top;
-        const elementHeight: number = element.scrollHeight;
+    const getHeightOpen = () => {
+        const windowHeight = window.innerHeight;
+        const elementOffset = element.getBoundingClientRect().top;
+        const elementHeight = element.scrollHeight;
         return Math.round(Math.min(elementHeight, windowHeight - elementOffset));
-    }
+    };
 
-    function open(): void {
+    const open = () => {
         if (!isOpen) {
             isOpen = true;
 
@@ -30,9 +30,9 @@ export function initExperience(element: HTMLElement, moveStart: () => void, move
                 }, 500);
             }, 1);
         }
-    }
+    };
 
-    function close(): void {
+    const close = () => {
         if (isOpen) {
             isOpen = false;
 
@@ -48,7 +48,7 @@ export function initExperience(element: HTMLElement, moveStart: () => void, move
                 }, 500);
             }, 1);
         }
-    }
+    };
 
     element.addEventListener(
         'click',
