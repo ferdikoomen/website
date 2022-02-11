@@ -2,15 +2,15 @@
 
 ## Install
 ```bash
-yarn install
+npm install
 ```
 
 ## Run
 ```bash
-yarn run start
+npm run start
 ```
 
 ## Release
 ```bash
-yarn run release
+npm run release
 ```
