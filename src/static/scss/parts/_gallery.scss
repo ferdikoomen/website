@@ -3,8 +3,8 @@
     position: relative;
     width: 100%;
     height: auto;
-    margin: $line-height * 2 0;
-    padding: 0 0 (($image-ultrawide-height / $image-ultrawide-width) * 100%);
+    margin: calc($line-height * 2) 0;
+    padding: 0 0 calc(($image-ultrawide-height / $image-ultrawide-width) * 100%);
     border-bottom: solid 64px;
     box-sizing: border-box;
     user-select: none;

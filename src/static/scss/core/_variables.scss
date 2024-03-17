@@ -16,7 +16,7 @@ $max-text-width: 540px;
 
 $preview-width: 1260px;
 $preview-height: 600px;
-$preview-ratio: ($preview-height / $preview-width) * 100%;
+$preview-ratio: calc(($preview-height / $preview-width) * 100%);
 
 $image-mobile-width: 460px;
 $image-mobile-height: 288px;
