@@ -3,63 +3,40 @@
     <div>
         <h2>Capture3</h2>
         <p>
-            C++ research project to learn more about cameras,
-            image processing, color spaces, OpenCV and multi‑threading.
+            Research project into digital cameras, image processing, color spaces, OpenCV and <span>multi‑threading</span>.
             <button class="btn btn-more" aria-expanded="false">Read more</button>
         </p>
     </div>
     <div aria-hidden="true">
         <p>
-            Capture3 is a C++ desktop application that can capture and process photos through
-            a tethered connection with a digital camera. It started out as a research project
-            to learn more about digital cameras, image processing, color spaces, C++, OpenCV
-            and multi‑threading.
+            Capture3 is a C++ desktop application designed to capture and process photos. Originating as a research project, it delves into digital cameras, image processing, color spaces, OpenCV, and <span>multi-threading</span>.
         </p>
         <ol>
             <li>
-                <strong>Tethered capturing:</strong> Automatically capture multiple photos with different
-                <a href="https://en.wikipedia.org/wiki/Exposure_value" target="_blank" rel="noopener noreferrer">exposure values</a> and focus planes, without
-                touching the camera.
+                <strong>Tethered capturing:</strong>
+                Automatically capture photos with varying exposure values and focus planes without manual intervention.
             </li>
             <li>
-                <strong>Automatic color calibration:</strong> This works by detecting a
-                <a href="https://xritephoto.com/colorchecker-digital-sg" target="_blank" rel="noopener noreferrer">X‑Rite ColorChecker Digital SG</a> target
-                in a photo, then detecting each of the 140 colored patches and
-                calculating a white point and color matrix from these values.
+                <strong>Automatic color calibration:</strong>
+                Detects a <span>X-Rite</span> ColorChecker Digital SG target in photos, computes white point and color matrix from patch values.
             </li>
             <li>
-                <strong>Exposure merging:</strong> Merge photos with different exposure brackets to create a
-                <a href="https://en.wikipedia.org/wiki/High-dynamic-range_imaging" target="_blank" rel="noopener noreferrer">HDR</a> image,
-                using a technique called <a href="https://en.wikipedia.org/wiki/Exposure_fusion" target="_blank" rel="noopener noreferrer">exposure fusion</a>.
+                <strong>Exposure merging:</strong>
+                Fuses photos with different exposure brackets to create HDR images.
             </li>
             <li>
-                <strong>Focus merging:</strong> Merge photos with different focal planes using a technique
-                called <a href="https://en.wikipedia.org/wiki/Focus_stacking" target="_blank" rel="noopener noreferrer">focus stacking</a> to create one result
-                image with a higher DOF (Depth Of Field).
+                <strong>Focus merging:</strong>
+                Stacks photos with different focal planes for increased depth of field.
             </li>
             <li>
-                <strong>Color space visualizer:</strong> Preview images in
-                <a href="https://en.wikipedia.org/wiki/RGB_color_space" target="_blank" rel="noopener noreferrer">RGB</a>,
-                <a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="noopener noreferrer">HSB</a>,
-                <a href="https://en.wikipedia.org/wiki/CIE_1931_color_space" target="_blank" rel="noopener noreferrer">XYZ</a> and
-                <a href="https://en.wikipedia.org/wiki/Lab_color_space" target="_blank" rel="noopener noreferrer">LAB</a> color spaces,
-                including 3D color space graphs.
+                <strong>Color space visualizer:</strong>
+                Preview images in RGB, HSB, XYZ, and LAB color spaces with 3D color space graphs.
             </li>
         </ol>
-        <!--
-        <p>
-            Capture3 is developed using <a href="https://www.jetbrains.com/clion/" target="_blank" rel="noopener noreferrer">JetBrains CLion</a>
-            and can be built on a Mac with macOS Sierra or higher.
-            Although it could support other camera's, it's only been tested using a
-            <a href="https://imaging.nikon.com/lineup/dslr/d3300/" target="_blank" rel="noopener noreferrer">Nikon D3300</a> and
-            <a href="https://www.sigmaphoto.com/lenses/standard-lenses/35mm-f14-dg-hsm-a" target="_blank" rel="noopener noreferrer">Sigma 35mm f/1.4 DG HSM Art</a> lens.
-        </p>
-        -->
         <h3>Technical details</h3>
         <ul>
-            <li>Made using <a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a></li>
+            <li>Developed with <a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a></li>
             <li>Written in <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener noreferrer">C++</a>
-            <li>Build using <a href="https://cmake.org/" target="_blank" rel="noopener noreferrer">CMake</a>
         </ul>
         <div class="gallery">
             <div>
@@ -70,16 +47,6 @@
             </div>
             {{> image-buttons }}
         </div>
-        <!--
-        <ul>
-            <li><a href="https://www.qt.io" target="_blank" rel="noopener noreferrer">Qt5</a> → Application framework used to create the GUI.</li>
-            <li><a href="http://opencv.org" target="_blank" rel="noopener noreferrer">OpenCV</a> → Image processing library.</li>
-            <li><a href="http://www.openmp.org" target="_blank" rel="noopener noreferrer">OpenMP</a> → Amazing multi‑threading library.</li>
-            <li><a href="http://www.imatest.com/docs/" target="_blank" rel="noopener noreferrer">Imatest</a> → Great resource on color targets and color matrix calculations.</li>
-            <li><a href="http://www.brucelindbloom.com" target="_blank" rel="noopener noreferrer">Bruce Lindbloom</a> → Great resource color space math.</li>
-            <li><a href="http://www.odelama.com/photo/" target="_blank" rel="noopener noreferrer">Oscar de Lama</a> → Great resource on RAW processing.</li>
-        </ul>
-        -->
         <ul class="links">
             <li>
                 <a href="/downloads/Capture3.dmg" class="btn btn-icon btn-download">

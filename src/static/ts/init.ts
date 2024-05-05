@@ -1,5 +1,4 @@
 import { delayedCall } from './delayedCall';
-import { initExperience } from './initExperience';
 import { initProject, Project } from './initProject';
 
 const elements: HTMLElement[] = [];
@@ -51,7 +50,6 @@ const resize = () => {
 export const init = () => {
     const sectionElements = document.querySelectorAll('header,section,footer');
     const projectElements = document.querySelectorAll('.project');
-    const experienceElements = document.querySelectorAll('.experience');
     let index = 1;
 
     for (let i = 0, n = sectionElements.length; i < n; i++) {
@@ -67,16 +65,6 @@ export const init = () => {
                 () => setPosition(),
                 (height: number) => onMove(height, j)
             )
-        );
-    }
-
-    for (let i = 0, n = experienceElements.length; i < n; i++) {
-        const j = index++;
-        initExperience(
-            experienceElements[i] as HTMLElement,
-            () => onMoveStart(),
-            () => setPosition(),
-            (height: number) => onMove(height, j)
         );
     }
 

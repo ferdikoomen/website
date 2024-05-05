@@ -3,33 +3,23 @@
     <div>
         <h2>SmartParks web application</h2>
         <p>
-            This application is used in African wild parks to display the
-            real-time location of animals, people and vehicles.
+            Navigate the African wild parks with the SmartParks web application.
             <button class="btn btn-more" aria-expanded="false">Read more</button>
         </p>
     </div>
     <div aria-hidden="true">
         <p>
-            The SmartParks web application (IOL) is used in African wild parks to display the real-time location
-            of animals, people and vehicles. This project was made in my free time to support
-            the great work of <a href="https://www.smartparks.org" target="_blank" rel="noopener noreferrer">SmartParks</a>
+            The SmartParks web application (IOL) aids park managers in monitoring <span>real-time</span> locations of animals, people, and vehicles.
         </p>
         <p>
-            Using the web application, park managers can quickly see the location of each tracker and get detailed
-            information like altitude, speed, course, etc. The application also displays the route a tracker
-            has taken. And it will notify the park manager when gates are opened and closed.
-        </p>
-        <p>
-            Next to the main interface, there is also a (HTML5 based) mobile app. Using the mobile app,
-            park managers can update the information of a tracker device by scanning it using the camera
-            on their mobile phone.
+            Built using Angular, SmartParks leverages the power of OpenLayers for seamless visualization of geographical data. Custom map layers were developed to efficiently handle vast amounts of data points and produce dynamic <span>real-time</span> heatmaps.
         </p>
         <h3>Technical details</h3>
         <ul>
-            <li>Made using <a href="https://angular.io" target="_blank" rel="noopener noreferrer">Angular5</a></li>
+            <li>Developed using <a href="https://angular.io" target="_blank" rel="noopener noreferrer">Angular5</a></li>
             <li>Written in <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">TypeScript</a></li>
-            <li>Maps via <a href="https://openlayers.org" target="_blank" rel="noopener noreferrer">OpenLayers</a></li>
-            <li>Build using <a href="https://webpack.github.io" target="_blank" rel="noopener noreferrer">Webpack</a></li>
+            <li>Maps powered by <a href="https://openlayers.org" target="_blank" rel="noopener noreferrer">OpenLayers</a></li>
+            <li>Built using <a href="https://webpack.github.io" target="_blank" rel="noopener noreferrer">Webpack</a></li>
         </ul>
         <div class="gallery">
             <div>
@@ -42,9 +32,6 @@
                 {{> video filename="smartparks-desktop" type="video-large" }}
                 {{> image filename="smartparks-admin-overview" alt="Admin interface" }}
                 {{> image filename="smartparks-admin-edit" alt="Admin interface showing an edit modal" }}
-                {{> image filename="smartparks-mobile-1" alt="Mobile interface showing a login" }}
-                {{> image filename="smartparks-mobile-2" alt="Mobile interface showing a barcode scanner" }}
-                {{> image filename="smartparks-mobile-3" alt="Mobile interface showing an edit modal" }}
                 <figure class="video video-small" role="presentation" aria-hidden="true" tabindex="-1">
                     <video preload="none" playsinline controls controlsList="nodownload">
                         <source src="/static/videos/smartparks-mkomazi.mp4" type="video/mp4"/>

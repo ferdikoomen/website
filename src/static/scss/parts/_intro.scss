@@ -29,6 +29,11 @@
         }
     }
 
+    > p.lead {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
     > p {
         > span {
             color: $color-highlight;

@@ -102,16 +102,6 @@ export const initProject = (element: HTMLElement, moveStart: () => void, moveDon
     buttonMore.addEventListener('click', e => open(e), false);
     buttonClose.addEventListener('click', e => close(e), false);
 
-    element.addEventListener(
-        'click',
-        (e: MouseEvent) => {
-            if (window.innerWidth >= 740) {
-                open(e);
-            }
-        },
-        false
-    );
-
     return {
         resize,
     };

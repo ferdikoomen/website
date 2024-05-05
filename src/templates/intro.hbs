@@ -1,19 +1,23 @@
 <header class="intro">
     <h1 id="message">Hello,</h1>
+    <p class="lead">
+        Hey there, I'm Ferdi Koomen, a freelance developer with over 16 years of experience managing and developing complex technical projects.
+    </p>
     <p>
-        <strong>I'm Ferdi Koomen</strong>, a freelance developer with more than 16 years of experience
-        in the development & management of complex technical projects. When I’m not working for clients,
-        you can find me learning new technologies or working on personal projects. This website showcases
-        a selection of that non-commercial work.
+        <strong>About me</strong>
     </p>
     <ol>
-        <li>Experienced in a wide range of technologies (both client and server side).</li>
-        <li>Comfortable with complex projects and tight deadlines.</li>
-        <li>Good communication skills.</li>
+        <li>Experienced in a wide range of technologies including React, Angular, TypeScript, JavaScript, Jest, Cypress, Node.js, Docker, AWS, and more.</li>
+        <li>Comfortable in leading technical workshops, defining solution architectures.</li>
+        <li>Skilled in managing multidisciplinary teams and delivering projects within tight deadlines.</li>
+        <li>Strong communication and collaboration abilities.</li>
     </ol>
     <p>
-        You can reach me on <a href="tel:+31641626099">+31 (0)6 41 62 60 99</a>
-        or <a href="mailto:info@madebyferdi.com">info@madebyferdi.com</a>
+        This website offers a glimpse into some of the non-commercial projects I've been tinkering with in my spare time.
+    </p>
+    <p>
+        Feel free to reach out to me at <a href="tel:+31641626099">+31 (0)6 41 62 60 99</a>
+        or drop an email to <a href="mailto:info@madebyferdi.com">info@madebyferdi.com</a>
     </p>
     <ul>
         <li>
@@ -34,9 +38,9 @@
         </li>
     </ul>
     <script>
-        var message = document.querySelector("#message");
-        var date = new Date();
-        var hours = date.getHours();
+        const message = document.querySelector("#message");
+        const date = new Date();
+        const hours = date.getHours();
         if (hours <= 9) {
             message.innerText = "Good morning,";
         }
