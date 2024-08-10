@@ -36,14 +36,14 @@ export const initGallery = (element: HTMLElement): Gallery => {
             if (videos[index] !== null) {
                 try {
                     videos[index]!.pause();
-                } catch (e) {
+                } catch {
                     // console.log(e);
                 }
             }
             if (videos[indexNext] !== null) {
                 try {
                     videos[indexNext]!.play().catch();
-                } catch (e) {
+                } catch {
                     // console.log(e);
                 }
             }
@@ -91,7 +91,7 @@ export const initGallery = (element: HTMLElement): Gallery => {
                     video.play();
                 }
             }
-        } catch (e) {
+        } catch {
             // console.log(e);
         }
     };
@@ -105,11 +105,11 @@ export const initGallery = (element: HTMLElement): Gallery => {
         }
     };
 
-    const onTouchStart = (e: any) => {
+    const onTouchStart = (e: Event) => {
         if (!down) {
             down = true;
-            startX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
-            startY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
+            startX = e.type === 'touchstart' ? (e as TouchEvent).targetTouches[0].pageX : (e as MouseEvent).pageX;
+            startY = e.type === 'touchstart' ? (e as TouchEvent).targetTouches[0].pageY : (e as MouseEvent).pageY;
             pos = startX;
 
             if (velocities.length === 0) {
@@ -127,10 +127,10 @@ export const initGallery = (element: HTMLElement): Gallery => {
         }
     };
 
-    const onTouchMove = (e: any) => {
+    const onTouchMove = (e: Event) => {
         if (down) {
-            const posX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
-            const posY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
+            const posX = e.type === 'touchmove' ? (e as TouchEvent).targetTouches[0].pageX : (e as MouseEvent).pageX;
+            const posY = e.type === 'touchmove' ? (e as TouchEvent).targetTouches[0].pageY : (e as MouseEvent).pageY;
 
             if (first) {
                 first = false;
@@ -203,7 +203,7 @@ export const initGallery = (element: HTMLElement): Gallery => {
                 try {
                     video.currentTime = 0;
                     video.pause();
-                } catch (e) {
+                } catch {
                     // console.log(e);
                 }
             }

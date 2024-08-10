@@ -1,25 +1,20 @@
-'use strict';
+import autoprefixer from 'autoprefixer';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackInlineSourcePlugin from 'html-webpack-inline-source-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
+import webpack from 'webpack';
 
-const webpack = require('webpack');
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-
-const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-module.exports = {
-    mode: 'production',
+export default {
+    mode: 'development',
 
     entry: {
         main: './src/static/ts/main.ts',
     },
 
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve('dist'),
         publicPath: '/',
         filename: 'static/js/[name].js',
     },
@@ -27,6 +22,16 @@ module.exports = {
     devtool: false,
 
     stats: 'minimal',
+
+    devServer: {
+        port: 8080,
+        host: '0.0.0.0',
+        open: true,
+        static: {
+            directory: path.join('static'),
+            publicPath: '/static',
+        },
+    },
 
     resolve: {
         extensions: ['.ts', '.js', '.scss'],
@@ -36,7 +41,7 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                include: path.resolve(__dirname, 'src/static/ts'),
+                include: path.resolve('src/static/ts'),
                 use: [
                     {
                         loader: 'babel-loader',
@@ -55,7 +60,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                include: path.resolve(__dirname, 'src/static/scss'),
+                include: path.resolve('src/static/scss'),
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -68,13 +73,7 @@ module.exports = {
                         options: {
                             postcssOptions: {
                                 ident: 'postcss',
-                                plugins: [
-                                    autoprefixer(),
-                                    cssnano({
-                                        safe: true,
-                                        autoprefixer: false,
-                                    }),
-                                ],
+                                plugins: [autoprefixer()],
                             },
                         },
                     },
@@ -85,7 +84,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|otf|ttf|woff|woff2)$/,
-                include: path.resolve(__dirname, 'src/static/fonts'),
+                include: path.resolve('src/static/fonts'),
                 type: 'asset/resource',
                 generator: {
                     filename: 'static/fonts/[name][ext]',
@@ -93,7 +92,7 @@ module.exports = {
             },
             {
                 test: /\.(jpg|png|webp|gif|svg|ico)$/,
-                include: path.resolve(__dirname, 'src/static/gfx'),
+                include: path.resolve('src/static/gfx'),
                 type: 'asset/resource',
                 generator: {
                     filename: 'static/gfx/[name][ext]',
@@ -101,7 +100,7 @@ module.exports = {
             },
             {
                 test: /\.(jpg|png|webp)$/,
-                include: path.resolve(__dirname, 'src/static/images'),
+                include: path.resolve('src/static/images'),
                 type: 'asset/resource',
                 generator: {
                     filename: 'static/images/[name][ext]',
@@ -116,8 +115,8 @@ module.exports = {
 
     plugins: [
         new webpack.EnvironmentPlugin({
-            NODE_ENV: 'production',
-            DEBUG: false,
+            NODE_ENV: 'development',
+            DEBUG: true,
         }),
 
         new CopyWebpackPlugin({
@@ -146,18 +145,7 @@ module.exports = {
             compile: true,
             cache: true,
             showErrors: true,
-            minify: {
-                html5: true,
-                caseSensitive: true,
-                collapseWhitespace: true,
-                removeComments: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                processScripts: ['application/ld+json'],
-                lint: false,
-                minifyJS: true,
-                minifyCSS: true,
-            },
+            minify: false,
             inject: 'body',
             inlineSource: '.(js|css)$',
             chunksSortMode: 'manual',
@@ -168,36 +156,7 @@ module.exports = {
     ],
 
     optimization: {
-        splitChunks: false,
-        minimizer: [
-            new TerserPlugin({
-                parallel: true,
-                terserOptions: {
-                    mangle: true,
-                    output: {
-                        comments: false,
-                    },
-                    compress: {
-                        arrows: true,
-                        booleans: true,
-                        comparisons: true,
-                        conditionals: true,
-                        dead_code: true,
-                        drop_console: true,
-                        drop_debugger: true,
-                        evaluate: true,
-                        if_return: true,
-                        inline: true,
-                        join_vars: true,
-                        loops: true,
-                        properties: true,
-                        sequences: true,
-                        unused: true,
-                        warnings: false,
-                    },
-                },
-            }),
-        ],
+        minimize: false,
     },
 
     performance: {

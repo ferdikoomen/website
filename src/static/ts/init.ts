@@ -68,13 +68,14 @@ export const init = () => {
         );
     }
 
-    const fonts = (<any>document).fonts;
-    fonts &&
+    const fonts = document.fonts;
+    if (fonts) {
         fonts.ready.then(() => {
             delayedCall(() => {
                 resize();
             }, 100);
         });
+    }
 
     window.addEventListener(
         'resize',

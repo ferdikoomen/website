@@ -18,7 +18,9 @@ const render = () => {
     window.scrollTo(0, start + ratio * change);
 
     if (complete) {
-        cb && cb();
+        if (cb) {
+            cb();
+        }
     } else {
         requestAnimationFrame(() => render());
     }
