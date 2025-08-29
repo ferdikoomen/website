@@ -1,10 +1,13 @@
+@use "../core/media";
+@use "../core/variables";
+
 .gallery {
     display: block;
     position: relative;
     width: 100%;
     height: auto;
-    margin: calc($line-height * 2) 0;
-    padding: 0 0 calc(($image-ultrawide-height / $image-ultrawide-width) * 100%);
+    margin: calc(variables.$line-height * 2) 0;
+    padding: 0 0 calc((variables.$image-ultrawide-height / variables.$image-ultrawide-width) * 100%);
     border-bottom: solid 64px;
     box-sizing: border-box;
     user-select: none;
@@ -12,28 +15,28 @@
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-    @include from(tablet) {
-        border-bottom: 1px dotted $color-fade !important;
-        border-top: 1px dotted $color-fade !important;
+    @include media.from(tablet) {
+        border-bottom: 1px dotted variables.$color-fade !important;
+        border-top: 1px dotted variables.$color-fade !important;
         padding: 0;
-        height: $image-tablet-height + 70px;
+        height: variables.$image-tablet-height + 70px;
         overflow: hidden;
     }
 
-    @include from(desktop) {
-        height: $image-desktop-height + 70px;
+    @include media.from(desktop) {
+        height: variables.$image-desktop-height + 70px;
     }
 
-    @include from(wide) {
-        height: $image-wide-height + 70px;
+    @include media.from(wide) {
+        height: variables.$image-wide-height + 70px;
     }
 
-    @include from(superwide) {
-        height: $image-superwide-height + 70px;
+    @include media.from(superwide) {
+        height: variables.$image-superwide-height + 70px;
     }
 
-    @include from(ultrawide) {
-        height: $image-ultrawide-height + 70px;
+    @include media.from(ultrawide) {
+        height: variables.$image-ultrawide-height + 70px;
     }
 
     > div {
@@ -71,40 +74,40 @@
             border-top: 32px solid;
             border-bottom: 32px solid;
 
-            @include from(tablet) {
+            @include media.from(tablet) {
                 padding: 34px 45px;
                 border-top: none;
                 border-bottom: none;
 
                 &.video-small {
-                    padding-left: $padding-side-tablet;
-                    padding-right: $padding-side-tablet;
+                    padding-left: variables.$padding-side-tablet;
+                    padding-right: variables.$padding-side-tablet;
                 }
             }
 
-            @include from(desktop) {
+            @include media.from(desktop) {
                 padding-left: 60px;
                 padding-right: 60px;
 
                 &.video-small {
-                    padding-left: $padding-side-desktop;
-                    padding-right: $padding-side-desktop;
+                    padding-left: variables.$padding-side-desktop;
+                    padding-right: variables.$padding-side-desktop;
                 }
             }
 
-            @include from(wide) {
+            @include media.from(wide) {
                 padding-left: 55px;
                 padding-right: 55px;
 
             }
 
-            @include from(superwide) {
+            @include media.from(superwide) {
                 padding-left: 45px;
                 padding-right: 45px;
 
             }
 
-            @include from(ultrawide) {
+            @include media.from(ultrawide) {
                 padding-left: 40px;
                 padding-right: 40px;
             }
@@ -167,7 +170,7 @@
             margin: 5px;
         }
 
-        @include from(tablet) {
+        @include media.from(tablet) {
             display: block;
         }
 
@@ -182,7 +185,7 @@
             left: 10px;
             z-index: 2;
 
-            @include from(desktop) {
+            @include media.from(desktop) {
                 left: 20px;
             }
         }
@@ -191,7 +194,7 @@
             right: 10px;
             z-index: 3;
 
-            @include from(desktop) {
+            @include media.from(desktop) {
                 right: 20px;
             }
         }
@@ -226,7 +229,7 @@
             cursor: pointer;
             transition: background-color ease 200ms;
 
-            @include from(tablet) {
+            @include media.from(tablet) {
                 top: -22px;
             }
 
@@ -244,7 +247,7 @@
 
             &:focus,
             &:hover {
-                background-color: $color-highlight;
+                background-color: variables.$color-highlight;
             }
 
             &.active {

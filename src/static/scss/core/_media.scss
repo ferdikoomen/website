@@ -1,15 +1,19 @@
+@use "sass:map";
+@use "sass:meta";
+@use "variables";
+
 $breakpoints: (
-    mobile: $breakpoint-mobile,
-    tablet: $breakpoint-tablet,
-    desktop: $breakpoint-desktop,
-    wide: $breakpoint-wide,
-    superwide: $breakpoint-superwide,
-    ultrawide: $breakpoint-ultrawide
+    mobile: variables.$breakpoint-mobile,
+    tablet: variables.$breakpoint-tablet,
+    desktop: variables.$breakpoint-desktop,
+    wide: variables.$breakpoint-wide,
+    superwide: variables.$breakpoint-superwide,
+    ultrawide: variables.$breakpoint-ultrawide
 ) !default;
 
 @function get-breakpoint($name) {
-    @if map-has-key($breakpoints, $name) {
-        @return map-get($breakpoints, $name);
+    @if map.has-key($breakpoints, $name) {
+        @return map.get($breakpoints, $name);
     } @else {
         @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
     }
@@ -25,7 +29,7 @@ $breakpoints: (
     $media-type: screen;
 
     @if $from {
-        @if type-of($from) == number {
+        @if meta.type-of($from) == number {
             $min-width: $from;
         } @else {
             $min-width: get-breakpoint($from);
@@ -33,7 +37,7 @@ $breakpoints: (
     }
 
     @if $until {
-        @if type-of($from) == number {
+        @if meta.type-of($from) == number {
             $max-width: $until;
         } @else {
             $max-width: get-breakpoint($until) - 1px;

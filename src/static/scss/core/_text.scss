@@ -1,19 +1,21 @@
+@use "variables";
+
 h1,
 h2 {
     display: block;
     margin: 0;
     padding: 0;
-    max-width: $max-text-width;
+    max-width: variables.$max-text-width;
 }
 
 p,
 ul,
 ol {
     display: block;
-    margin: $line-height 0;
+    margin: variables.$line-height 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: $max-text-width;
+    max-width: variables.$max-text-width;
 }
 
 li {

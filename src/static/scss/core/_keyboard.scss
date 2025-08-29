@@ -1,7 +1,9 @@
+@use "variables";
+
 kbd {
     display: inline-block;
     padding: 3px 5px 5px;
-    font: 14px $font-family-monospace;
+    font: 14px variables.$font-family-monospace;
     font-weight: normal;
     line-height: 12px;
     color: #444D56;

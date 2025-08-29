@@ -1,3 +1,6 @@
+@use "../core/media";
+@use "../core/variables";
+
 .footer {
     display: block;
     position: relative;
@@ -6,25 +9,25 @@
     color: white;
     background: #1E1E1E;
     text-align: center;
-    padding: $line-height $padding-side-mobile 100px;
+    padding: variables.$line-height variables.$padding-side-mobile 100px;
     box-sizing: border-box;
     transform: translate(0, 0);
     transition: transform ease-in-out 400ms;
 
-    @include from(mobile) {
-        padding: $line-height * 2 $padding-side-tablet + 50px 200px;
+    @include media.from(mobile) {
+        padding: variables.$line-height * 2 variables.$padding-side-tablet + 50px 200px;
     }
 
-    @include from(desktop) {
-        padding: $line-height * 2 $padding-side-desktop + 50px 200px;
+    @include media.from(desktop) {
+        padding: variables.$line-height * 2 variables.$padding-side-desktop + 50px 200px;
     }
 
     > h2 {
-        font-size: $font-size-large;
+        font-size: variables.$font-size-large;
         font-weight: 600;
-        line-height: $font-size-large;
+        line-height: variables.$font-size-large;
         position: relative;
-        margin: 0 0 $line-height;
+        margin: 0 0 variables.$line-height;
         max-width: none;
     }
 
@@ -38,7 +41,7 @@
             margin-right: 0;
             margin-bottom: 12px;
 
-            @include from(mobile) {
+            @include media.from(mobile) {
                 display: inline-block;
 
                 &:not(:last-child) {

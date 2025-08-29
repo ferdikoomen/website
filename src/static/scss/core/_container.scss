@@ -1,3 +1,6 @@
+@use "media";
+@use "variables";
+
 .container {
     display: block;
     position: relative;
@@ -7,28 +10,28 @@
     overflow: hidden;
     background: white;
 
-    @include from(tablet) {
-        width: $breakpoint-tablet;
+    @include media.from(tablet) {
+        width: variables.$breakpoint-tablet;
         margin: 0 auto;
     }
 
-    @include from(desktop) {
-        width: $breakpoint-desktop;
+    @include media.from(desktop) {
+        width: variables.$breakpoint-desktop;
         margin: 0 auto;
     }
 
-    @include from(wide) {
-        width: $breakpoint-wide;
+    @include media.from(wide) {
+        width: variables.$breakpoint-wide;
         margin: 0 auto;
     }
 
-    @include from(superwide) {
-        width: $breakpoint-superwide;
+    @include media.from(superwide) {
+        width: variables.$breakpoint-superwide;
         margin: 0 auto;
     }
 
-    @include from(ultrawide) {
-        width: $breakpoint-ultrawide;
+    @include media.from(ultrawide) {
+        width: variables.$breakpoint-ultrawide;
         margin: 0 auto;
     }
 }

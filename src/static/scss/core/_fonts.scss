@@ -1,7 +1,9 @@
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-ExtraLight", 200, normal, normal);
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Light", 300, normal, normal);
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Regular", 400, normal, normal);
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-It", 400, italic, normal);
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Semibold", 600, normal, normal);
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Bold", 700, normal, normal);
-@include font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Black", 900, normal, normal);
+@use "mixins";
+
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-ExtraLight", 200, normal, normal);
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Light", 300, normal, normal);
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Regular", 400, normal, normal);
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-It", 400, italic, normal);
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Semibold", 600, normal, normal);
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Bold", 700, normal, normal);
+@include mixins.font-import("Source Sans Pro", "../fonts/source-sans-pro/SourceSansPro-Black", 900, normal, normal);
