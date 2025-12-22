@@ -14,3 +14,6 @@ npm run start
 ```bash
 npm run release
 ```
+
+## Issues
+- `html-webpack-plugin version` > `5.6.0` causes build error
