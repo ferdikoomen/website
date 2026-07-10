@@ -1,9 +1,11 @@
 {
     "compilerOptions": {
         "outDir": "./dist",
+        "rootDir": "./src/static/ts",
         "target": "es2020",
         "module": "es2020",
         "moduleResolution": "node",
+        "ignoreDeprecations": "6.0",
         "lib": ["es2020", "dom"],
         "types": ["node"],
         "declaration": false,
