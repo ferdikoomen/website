@@ -1,5 +1,5 @@
-@use "media";
-@use "variables";
+@use 'media';
+@use 'variables';
 
 .btn {
     display: inline-block;
@@ -42,7 +42,7 @@
 
     &.btn-icon {
         > svg {
-            content: "";
+            content: '';
             display: inline-block;
             position: relative;
             top: 5px;
@@ -73,5 +73,14 @@
     &:focus {
         text-decoration: none;
         background-color: variables.$color-highlight;
+        color: variables.$color-text !important;
+
+        > svg {
+            fill: variables.$color-text;
+        }
+
+        > span {
+            color: variables.$color-text;
+        }
     }
 }

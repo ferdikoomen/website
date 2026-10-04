@@ -42,7 +42,8 @@ const inlineHtmlPlugin = (): Plugin => ({
             }
         }
         const html = await renderTemplate();
-        const inlined = html.replace('</body>', `<style>${style}</style><script>${script}</script></body>`);
+        const withoutDevScript = html.replace(/\s*<script type="module" src="[^"]*main\.ts"><\/script>/, '');
+        const inlined = withoutDevScript.replace('</body>', `<style>${style}</style><script>${script}</script></body>`);
         const minified = await minify(inlined, {
             collapseWhitespace: true,
             removeComments: true,
