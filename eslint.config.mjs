@@ -6,7 +6,7 @@ import typescript from 'typescript-eslint';
 
 export default [
     {
-        ignores: ['dist/*'],
+        ignores: ['dist/*', 'public/*'],
     },
     javascript.configs.recommended,
     ...typescript.configs.recommended,
@@ -15,8 +15,7 @@ export default [
         languageOptions: {
             globals: {
                 ...globals.browser,
-                ...globals.jest,
-                ...globals.es2020,
+                ...globals.node,
             },
         },
         plugins: {
