@@ -14,7 +14,8 @@ compression, similar to CloudFront (see [Validation](#validation)).
 | Performance score (desktop)    | 92             | **100**        |
 | Largest Contentful Paint (mobile)  | 8.0 s      | 1.7 s          |
 | Largest Contentful Paint (desktop) | 1.8 s      | 0.4 s          |
-| Speed Index (mobile)           | 3.7 s          | 1.1 s          |
+| First Contentful Paint (mobile) | 0.9 s         | 0.7 s          |
+| Speed Index (mobile)           | 3.7 s          | 0.7 s          |
 | Total Blocking Time (mobile)   | 140 ms         | 0 ms           |
 | Cumulative Layout Shift        | 0              | 0              |
 | Page weight (mobile)           | 1,801 KiB      | 210 KiB        |
@@ -88,8 +89,12 @@ emitted.
   Latin character set (the same range Google Fonts uses) and keeps only the default
   text features (kerning, ligatures). Each font goes from ~100 KB to ~17 KB. Hinting is
   kept for rendering quality on Windows.
-- Only the three weights visible above the fold (200, 400, 700) are preloaded, instead
-  of all seven.
+- Only the five weights the first render needs (200, 300, 400, 600, 700) are preloaded,
+  instead of all seven. Italic is only used further down and loads on demand. The 300
+  and 600 weights are requested on the first render anyway (they are in the DOM), so
+  preloading them adds no bytes but lets them download in parallel with the others
+  instead of after the CSS is parsed. This lowers the mobile FCP and Speed Index from
+  1.1 s to 0.7 s.
 - A "Source Sans Pro Fallback" font face, Arial with `size-adjust` and ascent/descent
   overrides calculated with [Capsize](https://github.com/seek-oss/capsize), makes the
   fallback text take the same space as the web font. This minimizes the layout shift
@@ -173,7 +178,7 @@ A Playwright script loaded both builds at four viewport sizes (390, 800, 1440 an
 1920 px wide) and logged every request:
 
 - Before: 45 requests on load, including all gallery images and all 7 fonts.
-- After: 10 to 20 requests on load: 3 preloaded fonts, the other used fonts, the
+- After: 10 to 20 requests on load: 5 preloaded fonts, the other used fonts, the
   previews, the client logos (only near the viewport) and a favicon. No gallery images.
 - Opening the Capture3 project loaded the first two slides; clicking "next" loaded the
   third slide, confirming the preloading of neighbouring slides.
