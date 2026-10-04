@@ -1,0 +1,14 @@
+@use "mixins";
+
+// Latin subsets of the original fonts in /assets/fonts, see scripts/fonts.mjs
+@include mixins.font-face("Source Sans Pro", "../fonts/SourceSansPro-ExtraLight.woff2", 200);
+@include mixins.font-face("Source Sans Pro", "../fonts/SourceSansPro-Light.woff2", 300);
+@include mixins.font-face("Source Sans Pro", "../fonts/SourceSansPro-Regular.woff2", 400);
+@include mixins.font-face("Source Sans Pro", "../fonts/SourceSansPro-It.woff2", 400, italic);
+@include mixins.font-face("Source Sans Pro", "../fonts/SourceSansPro-Semibold.woff2", 600);
+@include mixins.font-face("Source Sans Pro", "../fonts/SourceSansPro-Bold.woff2", 700);
+
+// Arial adjusted to the metrics of Source Sans Pro, this minimizes the layout shift
+// when the web font is swapped in. Values are calculated with https://github.com/seek-oss/capsize
+@include mixins.font-fallback("Source Sans Pro Fallback", (local("Arial"), local("ArialMT")), 100 500);
+@include mixins.font-fallback("Source Sans Pro Fallback", (local("Arial Bold"), local("Arial-BoldMT")), 600 900);
