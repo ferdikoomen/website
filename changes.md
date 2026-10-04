@@ -164,8 +164,8 @@ branch, served by the same local static server.
 - The server compressed text files with Brotli and sent long cache headers for assets,
   like CloudFront would.
 - The final mobile run was repeated to check the score is stable (100 both times).
-- Remaining warnings are small: "font display" estimates 10 ms of savings, and the
-  "Read more" button contrast is described under [Open points](#open-points).
+- Remaining warnings are small: "font display" estimates 10 ms of savings. The
+  "Read more" button contrast issue was fixed in the combined branch.
 
 ### Network requests
 
@@ -223,13 +223,21 @@ like the non-breaking hyphen in "multi‑threading" and typographic quotes.
 
 ## Open points
 
-- **"Read more" button contrast (mobile):** white text on the green `#33CC33` has a
-  contrast ratio of about 2:1, below the 4.5:1 that accessibility guidelines require.
-  This is the only remaining accessibility finding (score 96). It is a design choice,
-  so it has not been changed.
+- **"Read more" button contrast (mobile):** now uses dark text (`#111111`) on the
+  green `#33CC33` (contrast 8.8:1, WCAG AA) instead of white (about 2:1); the green
+  background itself is unchanged. Button hover/focus states use the same dark text.
 - **CloudFront:** enable "Compress objects automatically" so the HTML is served with
-  Brotli or gzip. The README has suggested cache headers: `index.html` revalidated on
-  every request, the hashed fonts cached forever.
+  Brotli or gzip. Deploy commands and cache strategy:
+
+```bash
+npm run release
+aws s3 sync dist/ s3://<bucket> --delete --cache-control "public, max-age=31536000, immutable" --exclude index.html
+aws s3 cp dist/index.html s3://<bucket>/index.html --cache-control "public, max-age=60"
+aws cloudfront create-invalidation --distribution-id <id> --paths "/index.html"
+```
+
+  Because all assets have hashed filenames, they can be cached forever; only
+  `index.html` needs a short TTL and an invalidation on deploy.
 - **Old image URLs:** the old `.jpg` and `.webp` gallery images no longer exist. This
   only matters if something links to them directly.
 - **Browser support:** tested in Chromium only. The open animation of the project

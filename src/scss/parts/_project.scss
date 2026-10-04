@@ -146,6 +146,8 @@
 
                 @include media.until(tablet) {
                     background: variables.$color-highlight;
+                    color: variables.$color-text !important;
+                    fill: variables.$color-text;
                 }
             }
         }

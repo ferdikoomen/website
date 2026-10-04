@@ -73,5 +73,10 @@
     &:focus {
         text-decoration: none;
         background-color: variables.$color-highlight;
+        color: variables.$color-text !important;
+
+        > svg {
+            fill: variables.$color-text;
+        }
     }
 }
