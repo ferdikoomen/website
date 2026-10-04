@@ -3,11 +3,9 @@
         "outDir": "./dist",
         "rootDir": "./src/static/ts",
         "target": "es2020",
-        "module": "es2020",
-        "moduleResolution": "node",
-        "ignoreDeprecations": "6.0",
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "lib": ["es2020", "dom"],
-        "types": ["node"],
         "declaration": false,
         "declarationMap": false,
         "sourceMap": false,
@@ -19,12 +17,6 @@
         "strictFunctionTypes": true,
         "skipLibCheck": true
     },
-
-    "include": [
-        "./src/static/ts/**/*.ts"
-    ],
-
-    "exclude": [
-        "node_modules"
-    ]
+    "include": ["./src/static/ts/**/*.ts"],
+    "exclude": ["node_modules"]
 }

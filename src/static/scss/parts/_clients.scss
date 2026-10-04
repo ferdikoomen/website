@@ -1,5 +1,5 @@
-@use "../core/media";
-@use "../core/variables";
+@use '../core/media';
+@use '../core/variables';
 
 .clients {
     display: block;
@@ -71,43 +71,43 @@
         }
 
         &#contentbloom {
-            background-image: url("../gfx/logo-contentbloom.png");
+            background-image: url('/static/gfx/logo-contentbloom.png');
         }
 
         &#rws {
-            background-image: url("../gfx/logo-rws.png");
+            background-image: url('/static/gfx/logo-rws.png');
         }
 
         &#robeco {
-            background-image: url("../gfx/logo-robeco.png");
+            background-image: url('/static/gfx/logo-robeco.png');
         }
 
         &#tomtom {
-            background-image: url("../gfx/logo-tomtom.png");
+            background-image: url('/static/gfx/logo-tomtom.png');
         }
 
         &#trivident {
-            background-image: url("../gfx/logo-trivident.png");
+            background-image: url('/static/gfx/logo-trivident.png');
         }
 
         &#driebit {
-            background-image: url("../gfx/logo-driebit.png");
+            background-image: url('/static/gfx/logo-driebit.png');
         }
 
         &#kokoro {
-            background-image: url("../gfx/logo-kokoro.png");
+            background-image: url('/static/gfx/logo-kokoro.png');
         }
 
         &#ttto {
-            background-image: url("../gfx/logo-ttto.png");
+            background-image: url('/static/gfx/logo-ttto.png');
         }
 
         &#akqa {
-            background-image: url("../gfx/logo-akqa.png");
+            background-image: url('/static/gfx/logo-akqa.png');
         }
 
         &#demonsters {
-            background-image: url("../gfx/logo-demonsters.png");
+            background-image: url('/static/gfx/logo-demonsters.png');
         }
     }
 }
